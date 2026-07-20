@@ -53,7 +53,7 @@ export async function buildSignedDisclosurePdf({
   const introSuffix =
     ", hereby acknowledge and agree to the following terms and conditions related to";
   let introSize = bodySize;
-  let introLine = `${introPrefix}${fullName}${introSuffix}`;
+  const introLine = `${introPrefix}${fullName}${introSuffix}`;
 
   while (
     font.widthOfTextAtSize(introLine, introSize) > maxLineWidth &&
