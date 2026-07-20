@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Logo-aligned palette: black · electric blue · silver */
+  --color-charcoal: #0a0a0a;
+  --color-charcoal-light: #161616;
+  --color-charcoal-dark: #000000;
+  --color-navy: #05070c;
+  --color-navy-light: #0e1420;
+  --color-navy-deep: #000000;
+
+  /* Override Tailwind emerald scale → logo electric blue */
+  --color-emerald: #0088ff;
+  --color-emerald-50: #eff7ff;
+  --color-emerald-100: #dbebff;
+  --color-emerald-200: #bfd9ff;
+  --color-emerald-300: #93c0ff;
+  --color-emerald-400: #4db8ff;
+  --color-emerald-500: #0088ff;
+  --color-emerald-600: #0066d6;
+  --color-emerald-700: #0051ad;
+  --color-emerald-800: #06458f;
+  --color-emerald-900: #0a2a4a;
+  --color-emerald-950: #061828;
+  --color-emerald-light: #4db8ff;
+  --color-emerald-dark: #0066d6;
+  --color-emerald-muted: #0a2a4a;
+
+  --color-silver: #c8cdd5;
+  --color-silver-light: #e8ecf0;
+  --color-surface: #f4f6f9;
+  --color-surface-dark: #0a0a0a;
+  --font-sans: var(--font-sans), "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), "Syne", ui-sans-serif, system-ui, sans-serif;
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-slide-up: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  :root {
+    --background: 244 246 249;
+    --foreground: 10 10 10;
+    --muted: 100 110 125;
+    --border: 220 226 235;
+    --accent: 0 136 255;
+    --card: 255 255 255;
+  }
+
+  .dark {
+    --background: 0 0 0;
+    --foreground: 250 250 250;
+    --muted: 160 168 180;
+    --border: 32 36 44;
+    --accent: 0 136 255;
+    --card: 14 14 14;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-charcoal antialiased dark:bg-charcoal-dark dark:text-white;
+  }
+
+  ::selection {
+    @apply bg-emerald/25 text-emerald-dark dark:text-emerald-light;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/75 backdrop-blur-xl border border-white/20 dark:bg-black/70 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-lg border border-black/5 rounded-2xl shadow-sm
+           dark:bg-charcoal-light/90 dark:border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald-dark via-emerald to-emerald-light bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .heading-xl {
+    @apply font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05];
+  }
+
+  .heading-lg {
+    @apply font-display font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight leading-tight;
+  }
+
+  .heading-md {
+    @apply font-display font-semibold text-2xl sm:text-3xl tracking-tight;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-medium;
+  }
+
+  .body-md {
+    @apply text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium;
+  }
+
+  .bg-gradient-premium {
+    background-image: linear-gradient(
+      135deg,
+      rgba(0, 136, 255, 0.08) 0%,
+      rgba(0, 0, 0, 0.03) 45%,
+      transparent 100%
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
