@@ -13,13 +13,24 @@ import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { tradingFeatures } from "@/lib/constants";
-import { createMetadata, createServiceSchema, siteConfig } from "@/lib/metadata";
+import {
+  createBreadcrumbSchema,
+  createMetadata,
+  createServiceSchema,
+  siteConfig,
+} from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Trading Education",
   description:
     "Learn trading with discipline through structured education, risk management, trading psychology, and live mentorship. No hype — just real skills.",
   path: "/trading",
+  keywords: [
+    "trading course",
+    "stock market education",
+    "trading mentor",
+    "day trading education",
+  ],
 });
 
 const iconMap: Record<string, LucideIcon> = {
@@ -35,12 +46,20 @@ export default function TradingPage() {
     "Structured trading education with emphasis on risk management, psychology, and long-term skill development.",
     "https://marketmoneyhq.com/trading"
   );
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Trading Education", path: "/trading" },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <PageHero

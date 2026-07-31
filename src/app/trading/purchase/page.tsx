@@ -8,6 +8,7 @@ export const metadata: Metadata = createMetadata({
   description:
     "Sign the Trading Disclosure Form to continue to secure Stripe checkout for Market Money HQ trading education.",
   path: "/trading/purchase",
+  noIndex: true,
 });
 
 export default function TradingPurchasePage() {

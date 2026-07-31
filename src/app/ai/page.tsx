@@ -12,13 +12,23 @@ import { PageHero } from "@/components/sections/PageHero";
 import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
 import { aiFeatures } from "@/lib/constants";
-import { createMetadata, createServiceSchema } from "@/lib/metadata";
+import {
+  createBreadcrumbSchema,
+  createMetadata,
+  createServiceSchema,
+} from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "AI Consulting & Solutions",
   description:
     "Practical AI consulting for entrepreneurs and small businesses. Automate workflows, enhance productivity, and build smarter businesses with AI.",
   path: "/ai",
+  keywords: [
+    "AI consulting",
+    "AI for small business",
+    "workflow automation",
+    "AI productivity",
+  ],
 });
 
 const iconMap: Record<string, LucideIcon> = {
@@ -36,12 +46,20 @@ export default function AIPage() {
     "Practical AI implementation for entrepreneurs — workflow automation, productivity tools, and business strategy.",
     "https://marketmoneyhq.com/ai"
   );
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "AI Consulting & Solutions", path: "/ai" },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <PageHero

@@ -13,13 +13,23 @@ import { PageHero } from "@/components/sections/PageHero";
 import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
 import { websiteServices } from "@/lib/constants";
-import { createMetadata, createServiceSchema } from "@/lib/metadata";
+import {
+  createBreadcrumbSchema,
+  createMetadata,
+  createServiceSchema,
+} from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Website Design & Digital Marketing",
   description:
     "Custom websites, SEO, brand strategy, Google Business, sales funnels, lead generation, and AI automation for businesses that want to grow online.",
   path: "/website-design",
+  keywords: [
+    "website design",
+    "SEO services",
+    "digital marketing agency",
+    "lead generation",
+  ],
 });
 
 const iconMap: Record<string, LucideIcon> = {
@@ -38,12 +48,20 @@ export default function WebsiteDesignPage() {
     "Custom website design, SEO optimization, brand strategy, and digital marketing services for growing businesses.",
     "https://marketmoneyhq.com/website-design"
   );
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Website Design & Digital Marketing", path: "/website-design" },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <PageHero

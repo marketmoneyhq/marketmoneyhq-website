@@ -3,18 +3,32 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ResourceGrid } from "@/components/sections/ResourceGrid";
 import { Newsletter } from "@/components/sections/Newsletter";
 import { CTA } from "@/components/sections/CTA";
-import { createMetadata } from "@/lib/metadata";
+import { createBreadcrumbSchema, createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Resources",
   description:
     "Free educational resources on trading, business development, AI, and building financial freedom. Practical guides for the modern digital economy.",
   path: "/resources",
+  keywords: [
+    "trading resources",
+    "financial education guides",
+    "business development resources",
+  ],
 });
 
 export default function ResourcesPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
         badge="Resources"
         title="Knowledge that compounds"

@@ -2,19 +2,28 @@ import type { Metadata } from "next";
 import { Mail, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { siteConfig } from "@/lib/metadata";
-import { createMetadata } from "@/lib/metadata";
+import { createBreadcrumbSchema, createMetadata, siteConfig } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
     "Get in touch with Market Money HQ. Book a free consultation, ask questions, or learn how our education and mentorship programs can help you build financial freedom.",
   path: "/contact",
+  keywords: ["contact Market Money HQ", "book consultation", "trading consultation"],
 });
 
 export default function ContactPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
         badge="Contact"
         title="Let's start the conversation"

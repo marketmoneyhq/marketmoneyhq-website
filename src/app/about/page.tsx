@@ -3,7 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Timeline } from "@/components/sections/Timeline";
 import { Stats } from "@/components/sections/Stats";
 import { CTA } from "@/components/sections/CTA";
-import { createMetadata } from "@/lib/metadata";
+import { createBreadcrumbSchema, createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "About Us",
@@ -99,8 +99,17 @@ function StorySection() {
 }
 
 export default function AboutPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
         badge="About Us"
         title="Built on skills, not shortcuts"

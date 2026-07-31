@@ -26,6 +26,10 @@ const display = Syne({
 
 export const metadata: Metadata = {
   ...createMetadata({}),
+  title: {
+    default: "Market Money HQ — Build Skills. Create Wealth. Live with Freedom.",
+    template: "%s | Market Money HQ",
+  },
   icons: {
     icon: [{ url: "/favicon.svg" }, { url: "/logo.png", type: "image/png" }],
     apple: "/logo.png",

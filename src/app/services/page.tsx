@@ -13,13 +13,18 @@ import {
 import { PageHero } from "@/components/sections/PageHero";
 import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
-import { createMetadata } from "@/lib/metadata";
+import { createBreadcrumbSchema, createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Services",
   description:
     "Trading mentorship, website design, digital marketing, AI consulting, and business development — practical services for building lasting wealth.",
   path: "/services",
+  keywords: [
+    "trading mentorship",
+    "business consulting",
+    "digital economy education",
+  ],
 });
 
 const iconMap: Record<string, LucideIcon> = {
@@ -113,8 +118,17 @@ const detailedServices = [
 ];
 
 export default function ServicesPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
         badge="Services"
         title="Practical solutions for real growth"
