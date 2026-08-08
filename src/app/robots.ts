@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/trading/purchase"],
       },
     ],
-    sitemap: "https://marketmoneyhq.com/sitemap.xml",
-    host: "https://marketmoneyhq.com",
+    sitemap: "https://www.marketmoneyhq.com/sitemap.xml",
+    host: "https://www.marketmoneyhq.com",
   };
 }

@@ -44,7 +44,7 @@ export default function TradingPage() {
   const serviceSchema = createServiceSchema(
     "Trading Education & Mentorship",
     "Structured trading education with emphasis on risk management, psychology, and long-term skill development.",
-    "https://marketmoneyhq.com/trading"
+    "https://www.marketmoneyhq.com/trading"
   );
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },

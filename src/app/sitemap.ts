@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://marketmoneyhq.com";
+  const baseUrl = "https://www.marketmoneyhq.com";
   const lastModified = new Date();
 
   const routes: {

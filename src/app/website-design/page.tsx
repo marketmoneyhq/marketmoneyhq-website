@@ -46,7 +46,7 @@ export default function WebsiteDesignPage() {
   const serviceSchema = createServiceSchema(
     "Website Design & Digital Marketing",
     "Custom website design, SEO optimization, brand strategy, and digital marketing services for growing businesses.",
-    "https://marketmoneyhq.com/website-design"
+    "https://www.marketmoneyhq.com/website-design"
   );
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const siteUrl = "https://marketmoneyhq.com";
+const siteUrl = "https://www.marketmoneyhq.com";
 const siteName = "Market Money HQ";
 const defaultDescription =
   "Build skills. Create wealth. Live with freedom. Premium education and mentorship in trading, business, AI, and the digital economy.";

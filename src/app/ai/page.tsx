@@ -44,7 +44,7 @@ export default function AIPage() {
   const serviceSchema = createServiceSchema(
     "AI Consulting & Solutions",
     "Practical AI implementation for entrepreneurs — workflow automation, productivity tools, and business strategy.",
-    "https://marketmoneyhq.com/ai"
+    "https://www.marketmoneyhq.com/ai"
   );
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
