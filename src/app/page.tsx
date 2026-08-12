@@ -3,7 +3,6 @@ import { Mission } from "@/components/sections/Mission";
 import { Pillars } from "@/components/sections/Pillars";
 import { Services } from "@/components/sections/Services";
 import { Stats } from "@/components/sections/Stats";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Newsletter } from "@/components/sections/Newsletter";
 import { CTA } from "@/components/sections/CTA";
@@ -24,7 +23,6 @@ export default function HomePage() {
       <Pillars />
       <Services />
       <Stats />
-      <Testimonials />
       <FAQ />
       <Newsletter />
       <CTA />

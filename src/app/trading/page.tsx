@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -198,6 +199,8 @@ export default function TradingPage() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       <CTA
         title="Ready to learn trading the right way?"
