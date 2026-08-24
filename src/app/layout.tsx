@@ -56,17 +56,18 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              #mmhq-intro-boot{
-                position:fixed;inset:0;z-index:200;
-                display:flex;align-items:center;justify-content:center;
-                background:#000;pointer-events:auto
-              }
-              #mmhq-intro-boot img{
-                width:min(78vmin,560px);height:min(78vmin,560px);
-                object-fit:contain;
-                filter:drop-shadow(0 0 40px rgba(0,136,255,.5))
-              }
               html.mmhq-intro-lock,html.mmhq-intro-lock body{overflow:hidden!important}
+              /* CSS-only first paint — avoids injecting DOM React doesn't own */
+              html.mmhq-intro-pending::before{
+                content:"";
+                position:fixed;inset:0;z-index:200;
+                background-color:#000;
+                background-image:url(/logo.png);
+                background-position:center;
+                background-size:min(78vmin,560px);
+                background-repeat:no-repeat;
+                pointer-events:auto
+              }
             `,
           }}
         />
@@ -91,12 +92,6 @@ export default function RootLayout({
       <body
         className={`${sans.variable} ${display.variable} font-sans font-medium`}
       >
-        {/* Boot overlay is injected outside React so removing it can't break navigation */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=location.pathname;if(p!=="/"&&p!=="")return;if(document.getElementById("mmhq-intro-boot"))return;var d=document.createElement("div");d.id="mmhq-intro-boot";d.setAttribute("aria-hidden","true");var i=document.createElement("img");i.src="/logo.png";i.alt="";i.width=560;i.height=560;d.appendChild(i);document.body.insertBefore(d,document.body.firstChild);}catch(e){}})();`,
-          }}
-        />
         <ThemeProvider>
           <IntroRevealProvider>
             <IntroCurtain />

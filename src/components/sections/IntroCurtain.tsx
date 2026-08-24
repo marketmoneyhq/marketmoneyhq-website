@@ -7,7 +7,6 @@ import { useIntroReveal } from "@/components/providers/IntroReveal";
 
 const HOLD_MS = 1100;
 const OPEN_MS = 900;
-const BOOT_ID = "mmhq-intro-boot";
 
 function Logo() {
   return (
@@ -38,9 +37,7 @@ function LogoStage({ offset = false }: { offset?: boolean }) {
   );
 }
 
-function clearIntroLock() {
-  // Boot node is script-injected (not React-managed) — safe to remove
-  document.getElementById(BOOT_ID)?.remove();
+function unlockScroll() {
   document.documentElement.classList.remove(
     "mmhq-intro-lock",
     "mmhq-intro-pending"
@@ -59,7 +56,7 @@ export function IntroCurtain() {
 
   useEffect(() => {
     if (!isHome) {
-      clearIntroLock();
+      unlockScroll();
       reveal();
       playedRef.current = true;
       setPhase("done");
@@ -67,7 +64,7 @@ export function IntroCurtain() {
     }
 
     if (playedRef.current) {
-      clearIntroLock();
+      unlockScroll();
       reveal();
       setPhase("done");
       return;
@@ -78,15 +75,16 @@ export function IntroCurtain() {
     ).matches;
 
     if (reduceMotion) {
-      clearIntroLock();
+      unlockScroll();
       reveal();
       playedRef.current = true;
       setPhase("done");
       return;
     }
 
+    // Curtain is painted — drop the CSS first-paint overlay (no DOM surgery)
+    document.documentElement.classList.remove("mmhq-intro-pending");
     document.documentElement.style.overflow = "hidden";
-    document.getElementById(BOOT_ID)?.remove();
 
     let cancelled = false;
 
@@ -102,6 +100,7 @@ export function IntroCurtain() {
       if (!cancelled) {
         playedRef.current = true;
         setPhase("done");
+        unlockScroll();
       }
     }, HOLD_MS + OPEN_MS + 40);
 
@@ -112,12 +111,6 @@ export function IntroCurtain() {
       window.clearTimeout(doneTimer);
     };
   }, [reveal, isHome]);
-
-  useEffect(() => {
-    if (phase === "done") {
-      clearIntroLock();
-    }
-  }, [phase]);
 
   if (!isHome || phase === "done") return null;
 
