@@ -12,7 +12,7 @@ export const tradingDisclosure = {
       body: "I acknowledge that any information provided by Ambitious Investments UT LLC / Market Money HQ is for educational purposes only and should not be considered as financial advice. I will conduct my research and seek professional advice before making any trading decisions.",
     },
     {
-      heading: "3. No Guarantee of Profit",
+      heading: "3. No Guarantee Of Profit",
       body: "I understand that Ambitious Investments UT LLC / Market Money HQ does not guarantee profits or success in trading. Past performance is not indicative of future results, and market conditions may vary.",
     },
     {

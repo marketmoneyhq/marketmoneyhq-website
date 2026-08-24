@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   LineChart,
-  Globe,
-  Megaphone,
   Bot,
   Briefcase,
   ArrowRight,
@@ -29,8 +27,6 @@ export const metadata: Metadata = createMetadata({
 
 const iconMap: Record<string, LucideIcon> = {
   LineChart,
-  Globe,
-  Megaphone,
   Bot,
   Briefcase,
 };
@@ -39,48 +35,32 @@ const detailedServices = [
   {
     id: "trading-mentorship",
     icon: "LineChart",
-    title: "Trading Mentorship",
+    title: "Trading Education",
     href: "/trading",
     description:
       "Personalized guidance from experienced mentors who prioritize education, risk management, and long-term skill development.",
     features: [
-      "One-on-one mentorship sessions",
-      "Structured trading curriculum",
-      "Live market analysis",
-      "Risk management framework",
-      "Trading psychology coaching",
+      "One-On-One Mentorship Sessions",
+      "Structured Trading Curriculum",
+      "Live Market Analysis",
+      "Risk Management Framework",
+      "Trading Psychology Coaching",
     ],
   },
   {
-    id: "website-design",
-    icon: "Globe",
-    title: "Website Design",
-    href: "/website-design",
+    id: "business-development",
+    icon: "Briefcase",
+    title: "Business Development",
+    href: "/business-development",
     description:
-      "Custom, conversion-focused websites built with modern technology. From brand strategy to launch, we create digital experiences that grow your business.",
+      "Grow online with website development, digital marketing, or both — tailored to what your business needs most.",
     features: [
-      "Custom website development",
-      "Mobile-responsive design",
-      "SEO optimization",
-      "Brand strategy integration",
-      "Performance optimization",
-      "Ongoing support",
-    ],
-  },
-  {
-    id: "digital-marketing",
-    icon: "Megaphone",
-    title: "Digital Marketing",
-    href: "/website-design",
-    description:
-      "Strategic marketing that attracts the right audience and converts visitors into loyal customers.",
-    features: [
-      "Google Business optimization",
-      "Sales funnel design",
-      "Lead generation campaigns",
-      "Content strategy",
-      "Social media management",
-      "Analytics and reporting",
+      "Custom Website Development",
+      "Digital Marketing Campaigns",
+      "Website + Marketing Packages",
+      "SEO And Brand Strategy",
+      "Lead Generation Systems",
+      "Ongoing Growth Support",
     ],
   },
   {
@@ -91,28 +71,12 @@ const detailedServices = [
     description:
       "Practical AI implementation for entrepreneurs and small businesses ready to automate and scale.",
     features: [
-      "AI tool assessment",
-      "Workflow automation",
-      "Custom AI integrations",
-      "Productivity optimization",
-      "Team training",
-      "Ongoing AI strategy",
-    ],
-  },
-  {
-    id: "business-development",
-    icon: "Briefcase",
-    title: "Business Development",
-    href: "/contact",
-    description:
-      "Strategic guidance to help you identify opportunities, build sustainable revenue streams, and create a business aligned with your vision.",
-    features: [
-      "Business model design",
-      "Revenue strategy",
-      "Market analysis",
-      "Growth planning",
-      "Partnership development",
-      "Scaling guidance",
+      "AI Tool Assessment",
+      "Workflow Automation",
+      "Custom AI Integrations",
+      "Productivity Optimization",
+      "Team Training",
+      "Ongoing AI Strategy",
     ],
   },
 ];
@@ -131,7 +95,7 @@ export default function ServicesPage() {
       />
       <PageHero
         badge="Services"
-        title="Practical solutions for real growth"
+        title="Practical Solutions For Real Growth"
         description="From trading mentorship to AI consulting, we provide the education and services you need to build skills, grow your business, and create lasting wealth."
       />
 

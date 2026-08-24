@@ -15,7 +15,7 @@ export function Newsletter() {
 
             <div className="relative z-10 max-w-2xl mx-auto text-center">
               <h2 className="heading-md text-white mb-4">
-                Insights for building wealth
+                Insights For Building Wealth
               </h2>
               <p className="text-gray-400 mb-8">
                 Join our newsletter for practical education on trading, business,

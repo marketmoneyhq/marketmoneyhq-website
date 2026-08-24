@@ -43,7 +43,7 @@ function ValuesSection() {
           <p className="text-emerald font-medium text-sm tracking-wide uppercase mb-4">
             Our Values
           </p>
-          <h2 className="heading-lg mb-4">What we stand for</h2>
+          <h2 className="heading-lg mb-4">What We Stand For</h2>
           <p className="body-lg">
             These principles guide everything we do — from curriculum design to
             mentorship and client relationships.
@@ -112,7 +112,7 @@ export default function AboutPage() {
       />
       <PageHero
         badge="About Us"
-        title="Built on skills, not shortcuts"
+        title="Built On Skills, Not Shortcuts"
         description="Market Money HQ exists because we believe true wealth comes from developing valuable skills — not from chasing get-rich-quick schemes or following hype."
       />
       <StorySection />
@@ -120,7 +120,7 @@ export default function AboutPage() {
       <Timeline />
       <Stats />
       <CTA
-        title="Join an education-first approach"
+        title="Join An Education-First Approach"
         description="Whether you're starting your journey or looking to expand your skills, we're here to guide you with honesty, expertise, and long-term thinking."
       />
     </>

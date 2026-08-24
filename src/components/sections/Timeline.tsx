@@ -11,7 +11,7 @@ export function Timeline() {
         <MotionWrapper className="mb-16">
           <SectionHeader
             badge="Our Journey"
-            title="Built on experience, driven by purpose"
+            title="Built On Experience, Driven By Purpose"
             description="From trading education to a comprehensive platform for financial independence."
           />
         </MotionWrapper>

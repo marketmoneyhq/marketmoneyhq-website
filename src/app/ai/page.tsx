@@ -64,7 +64,7 @@ export default function AIPage() {
 
       <PageHero
         badge="AI Solutions"
-        title="Work smarter with practical AI"
+        title="Work Smarter With Practical AI"
         description="We help entrepreneurs and small businesses implement AI tools that save time, automate repetitive work, and create competitive advantages — without the complexity."
       />
 
@@ -75,7 +75,7 @@ export default function AIPage() {
               AI for Business
             </p>
             <h2 className="heading-lg mb-4">
-              AI that actually helps your business
+              AI That Actually Helps Your Business
             </h2>
             <p className="body-lg">
               We cut through the AI hype to identify and implement tools that
@@ -110,7 +110,7 @@ export default function AIPage() {
                 Why Now
               </p>
               <h2 className="heading-lg mb-6">
-                AI is the biggest productivity shift in decades
+                AI Is The Biggest Productivity Shift In Decades
               </h2>
               <div className="space-y-4 body-md">
                 <p>
@@ -152,7 +152,7 @@ export default function AIPage() {
       </section>
 
       <CTA
-        title="Ready to leverage AI for your business?"
+        title="Ready To Leverage AI For Your Business?"
         description="Book a consultation to discover which AI tools and strategies can save you time and accelerate your growth."
         primaryLabel="Book AI Consultation"
         secondaryLabel="View All Services"

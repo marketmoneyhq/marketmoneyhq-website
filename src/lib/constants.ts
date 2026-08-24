@@ -1,14 +1,25 @@
 export const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
   {
-    name: "Programs",
-    href: "#",
+    name: "Services",
+    href: "/services",
     children: [
-      { name: "Trading Education", href: "/trading", description: "Learn with discipline and mentorship" },
-      { name: "Website Design", href: "/website-design", description: "Custom sites that convert" },
-      { name: "AI Solutions", href: "/ai", description: "Automate and scale your business" },
+      {
+        name: "Trading Education",
+        href: "/trading",
+        description: "Learn with Discipline & Mentorship",
+      },
+      {
+        name: "Business Development",
+        href: "/business-development",
+        description: "Web Development & Marketing",
+      },
+      {
+        name: "AI",
+        href: "/ai",
+        description: "Learn How To Scale with AI",
+      },
     ],
   },
   { name: "Resources", href: "/resources" },
@@ -23,52 +34,50 @@ export const pillars = [
       "Develop the skills, discipline, and risk management needed to navigate markets with confidence. Our foundation in trading teaches you how to think, not just trade.",
     icon: "TrendingUp",
     href: "/trading",
-    features: ["Structured curriculum", "Live mentorship", "Risk management", "Trading psychology"],
+    features: ["Structured Curriculum", "Live Mentorship", "Risk Management", "Trading Psychology"],
   },
   {
     id: "business",
-    title: "Business Growth",
+    title: "Business Development",
     description:
       "From entrepreneurship to digital marketing, we help you build businesses that generate real income and create lasting opportunities in the modern economy.",
     icon: "Building2",
-    href: "/services",
-    features: ["Business development", "Digital marketing", "Lead generation", "Brand strategy"],
+    href: "/business-development",
+    features: ["Website Development", "Digital Marketing", "Or Both Together", "Brand Strategy"],
   },
   {
     id: "ai",
-    title: "AI & Digital Skills",
+    title: "AI",
     description:
       "Leverage artificial intelligence and modern technology to automate workflows, increase productivity, and build smarter businesses for the future.",
     icon: "Sparkles",
     href: "/ai",
-    features: ["AI automation", "Productivity tools", "Digital workflows", "Future-ready skills"],
+    features: [
+      "AI Automation",
+      "Productivity Tools",
+      "Digital Workflows",
+      "Future-Ready Skills",
+      "AI Mentorship & Guidance",
+    ],
   },
 ] as const;
 
 export const services = [
   {
     id: "trading-mentorship",
-    title: "Trading Mentorship",
+    title: "Trading Education",
     description:
       "Personalized guidance from experienced mentors who prioritize education, risk management, and long-term skill development over quick wins.",
     href: "/trading",
     icon: "LineChart",
   },
   {
-    id: "website-design",
-    title: "Website Design",
+    id: "business-development",
+    title: "Business Development",
     description:
-      "Custom, conversion-focused websites built with modern technology. From brand strategy to SEO, we create digital experiences that grow your business.",
-    href: "/website-design",
-    icon: "Globe",
-  },
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    description:
-      "Strategic marketing that attracts the right audience. Google Business, funnels, lead generation, and content that builds trust and drives results.",
-    href: "/website-design",
-    icon: "Megaphone",
+      "Grow online with custom website development, digital marketing, or a combined strategy built around your goals.",
+    href: "/business-development",
+    icon: "Briefcase",
   },
   {
     id: "ai-consulting",
@@ -77,14 +86,6 @@ export const services = [
       "Practical AI implementation for entrepreneurs and small businesses. Automate repetitive tasks, enhance productivity, and stay ahead of the curve.",
     href: "/ai",
     icon: "Bot",
-  },
-  {
-    id: "business-development",
-    title: "Business Development",
-    description:
-      "Strategic guidance to help you identify opportunities, build sustainable revenue streams, and create a business aligned with your vision of freedom.",
-    href: "/services",
-    icon: "Briefcase",
   },
 ] as const;
 
@@ -212,32 +213,32 @@ export const testimonials = [
 
 export const faqs = [
   {
-    question: "Is Market Money HQ a get-rich-quick program?",
+    question: "Is Market Money HQ A Get-Rich-Quick Program?",
     answer:
       "Absolutely not. We are an education and mentorship company focused on helping you develop valuable skills over time. Financial freedom is built through consistent learning, smart decisions, and long-term thinking — not shortcuts.",
   },
   {
-    question: "Do you guarantee trading profits?",
+    question: "Do You Guarantee Trading Profits?",
     answer:
       "No. Trading involves substantial risk and no profits are guaranteed. Our focus is on education, risk management, and developing the skills and mindset needed to make informed decisions. Past performance does not indicate future results.",
   },
   {
-    question: "Who is Market Money HQ for?",
+    question: "Who Is Market Money HQ For?",
     answer:
       "Our programs are designed for people aged 20–45 who want to improve their financial future. Whether you're interested in trading, building a business, learning AI, or creating additional income streams — if you value education over hype, you're in the right place.",
   },
   {
-    question: "What makes you different from other trading educators?",
+    question: "What Makes You Different From Other Trading Educators?",
     answer:
       "We don't sell trading — we teach people how to build skills that create freedom. Trading is one pillar among many, including business development, website design, digital marketing, and AI. Our holistic approach prepares you for the full digital economy.",
   },
   {
-    question: "How do I get started?",
+    question: "How Do I Get Started?",
     answer:
       "Book a free consultation to discuss your goals and find the right program for you. We'll help you understand your options and create a path forward based on where you are today and where you want to be.",
   },
   {
-    question: "Do you offer one-on-one mentorship?",
+    question: "Do You Offer One-On-One Mentorship?",
     answer:
       "Yes. We offer personalized mentorship across trading, business development, and AI consulting. Our mentors work with you to develop a customized learning plan aligned with your goals and experience level.",
   },
@@ -246,13 +247,13 @@ export const faqs = [
 export const timeline = [
   {
     year: "Foundation",
-    title: "Built on Real Experience",
+    title: "Built On Real Experience",
     description:
       "Market Money HQ was founded on a simple belief: true wealth comes from developing skills, not chasing shortcuts. Our team brings years of experience in trading, business, and technology.",
   },
   {
     year: "Evolution",
-    title: "Beyond the Charts",
+    title: "Beyond The Charts",
     description:
       "We expanded beyond trading education to encompass the full digital economy — business development, website design, digital marketing, and AI consulting.",
   },
@@ -264,7 +265,7 @@ export const timeline = [
   },
   {
     year: "Vision",
-    title: "The Future of Education",
+    title: "The Future Of Education",
     description:
       "We're building toward a world where everyday people have access to the skills, tools, and mentorship needed to create income, build wealth, and live with greater freedom.",
   },
@@ -394,7 +395,7 @@ export const resources = [
     readTime: "10 min read",
   },
   {
-    title: "AI for Entrepreneurs",
+    title: "AI For Entrepreneurs",
     category: "AI",
     description: "How to identify and implement AI tools that actually save you time.",
     readTime: "7 min read",

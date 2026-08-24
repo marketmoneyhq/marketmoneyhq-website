@@ -65,7 +65,7 @@ export default function TradingPage() {
 
       <PageHero
         badge="Trading Education"
-        title="Learn to trade with discipline, not desperation"
+        title="Learn To Trade With Discipline, Not Desperation"
         description="Our trading program focuses on education, risk management, and psychology — building the foundation for informed decisions in any market condition."
       />
 
@@ -74,7 +74,7 @@ export default function TradingPage() {
           <div className="flex flex-col items-start justify-between gap-4 rounded-3xl border border-[#0088ff]/20 bg-[#0088ff]/5 p-6 sm:flex-row sm:items-center">
             <div>
               <p className="font-display text-xl font-bold mb-1">
-                Ready to enroll?
+                Ready To Enroll?
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Sign the Trading Disclosure Form, then complete your one-time
@@ -118,7 +118,7 @@ export default function TradingPage() {
               Our Approach
             </p>
             <h2 className="heading-lg mb-4">
-              Education that builds real traders
+              Education That Builds Real Traders
             </h2>
             <p className="body-lg">
               We don&apos;t teach you to chase profits. We teach you to manage risk,
@@ -151,7 +151,7 @@ export default function TradingPage() {
             <p className="text-emerald font-medium text-sm tracking-wide uppercase mb-4">
               Curriculum
             </p>
-            <h2 className="heading-lg mb-4">A structured path to proficiency</h2>
+            <h2 className="heading-lg mb-4">A Structured Path To Proficiency</h2>
             <p className="body-lg">
               Our curriculum progresses from fundamentals to advanced concepts,
               ensuring you build a solid foundation before taking on complexity.
@@ -183,7 +183,7 @@ export default function TradingPage() {
             ].map((phase) => (
               <div
                 key={phase.phase}
-                className="glass-card p-6 flex flex-col sm:flex-row sm:items-center gap-4"
+                className="glass-card glass-card-glow p-6 flex flex-col sm:flex-row sm:items-center gap-4"
               >
                 <span className="text-emerald font-medium text-sm whitespace-nowrap">
                   {phase.phase}
@@ -203,7 +203,7 @@ export default function TradingPage() {
       <Testimonials />
 
       <CTA
-        title="Ready to learn trading the right way?"
+        title="Ready To Learn Trading The Right Way?"
         description="Purchase Trading Education after signing the disclosure, or book a free consultation to discuss fit first."
         primaryLabel="Purchase Trading Education"
         primaryHref="/trading/purchase"

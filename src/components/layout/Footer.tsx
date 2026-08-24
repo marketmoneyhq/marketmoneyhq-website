@@ -3,22 +3,19 @@
 import Link from "next/link";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/metadata";
-import { services } from "@/lib/constants";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 
 const footerLinks = {
   company: [
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
     { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ],
-  programs: [
+  services: [
     { name: "Trading Education", href: "/trading" },
-    { name: "Website Design", href: "/website-design" },
-    { name: "AI Solutions", href: "/ai" },
+    { name: "Business Development", href: "/business-development" },
+    { name: "AI", href: "/ai" },
   ],
-  services: services.map((s) => ({ name: s.title, href: s.href })),
 };
 
 export function Footer() {
@@ -67,10 +64,10 @@ export function Footer() {
 
             <div className="lg:col-span-2">
               <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400">
-                Programs
+                Services
               </h3>
               <ul className="space-y-3">
-                {footerLinks.programs.map((link) => (
+                {footerLinks.services.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}

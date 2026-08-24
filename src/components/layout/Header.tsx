@@ -15,7 +15,7 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [programsOpen, setProgramsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
   const lightNav = isHome && !isScrolled && !isOpen;
@@ -28,7 +28,7 @@ export function Header() {
 
   useEffect(() => {
     setIsOpen(false);
-    setProgramsOpen(false);
+    setServicesOpen(false);
   }, [pathname]);
 
   return (
@@ -60,8 +60,8 @@ export function Header() {
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => setProgramsOpen(true)}
-                  onMouseLeave={() => setProgramsOpen(false)}
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
                 >
                   <button
                     className={cn(
@@ -69,20 +69,20 @@ export function Header() {
                       lightNav
                         ? "text-white/90 hover:bg-white/10"
                         : "hover:bg-gray-100 dark:hover:bg-charcoal-light",
-                      programsOpen && !lightNav && "bg-gray-100 dark:bg-charcoal-light",
-                      programsOpen && lightNav && "bg-white/10"
+                      servicesOpen && !lightNav && "bg-gray-100 dark:bg-charcoal-light",
+                      servicesOpen && lightNav && "bg-white/10"
                     )}
                   >
                     {item.name}
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform",
-                        programsOpen && "rotate-180"
+                        servicesOpen && "rotate-180"
                       )}
                     />
                   </button>
                   <AnimatePresence>
-                    {programsOpen && (
+                    {servicesOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}

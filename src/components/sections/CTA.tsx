@@ -15,12 +15,12 @@ interface CTAProps {
 }
 
 export function CTA({
-  title = "Ready to build skills that create freedom?",
+  title = "Ready To Build Skills That Create Freedom?",
   description = "Book a free consultation and discover how Market Money HQ can help you develop the skills, knowledge, and mindset for financial independence.",
   primaryLabel = "Book a Consultation",
   primaryHref = siteConfig.calendlyUrl,
-  secondaryLabel = "Explore Programs",
-  secondaryHref = "/services",
+  secondaryLabel = "Explore Services",
+  secondaryHref = "/trading",
 }: CTAProps) {
   return (
     <section className="section-padding bg-white dark:bg-charcoal-dark">

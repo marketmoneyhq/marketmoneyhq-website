@@ -31,17 +31,17 @@ export default function ResourcesPage() {
       />
       <PageHero
         badge="Resources"
-        title="Knowledge that compounds"
+        title="Knowledge That Compounds"
         description="Practical guides, tutorials, and insights on trading, business, AI, and the mindset for building lasting wealth. Education you can apply today."
       />
       <ResourceGrid />
       <Newsletter />
       <CTA
-        title="Want personalized guidance?"
+        title="Want Personalized Guidance?"
         description="Our resources are a great starting point. For tailored mentorship and hands-on support, book a consultation with our team."
         primaryLabel="Book a Consultation"
-        secondaryLabel="Explore Programs"
-        secondaryHref="/services"
+        secondaryLabel="Explore Services"
+        secondaryHref="/trading"
       />
     </>
   );

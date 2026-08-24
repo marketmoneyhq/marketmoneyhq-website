@@ -16,7 +16,7 @@ export function FAQ() {
         <MotionWrapper className="mb-16">
           <SectionHeader
             badge="FAQ"
-            title="Common questions"
+            title="Common Questions"
             description="Everything you need to know about Market Money HQ and our approach to education."
           />
         </MotionWrapper>
@@ -24,7 +24,7 @@ export function FAQ() {
         <div className="space-y-3">
           {faqs.map((faq, index) => (
             <MotionWrapper key={faq.question} delay={index * 0.05}>
-              <div className="glass-card overflow-hidden">
+              <div className="glass-card glass-card-glow overflow-hidden">
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-center justify-between p-6 text-left"

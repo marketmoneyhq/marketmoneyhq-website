@@ -11,7 +11,7 @@ export function Mission() {
           <MotionWrapper variants={fadeInUp}>
             <SectionHeader
               badge="Our Mission"
-              title="Skills that create freedom, not shortcuts"
+              title="Skills That Create Freedom, Not Shortcuts"
               align="left"
             />
           </MotionWrapper>

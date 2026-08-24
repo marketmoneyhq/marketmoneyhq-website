@@ -26,7 +26,7 @@ export default function ContactPage() {
       />
       <PageHero
         badge="Contact"
-        title="Let's start the conversation"
+        title="Let's Start The Conversation"
         description="Whether you're ready to begin your journey or just exploring options, we're here to help. Book a free consultation or send us a message."
       />
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-8">
               <div>
-                <h2 className="heading-md mb-6">Get in touch</h2>
+                <h2 className="heading-md mb-6">Get In Touch</h2>
                 <p className="body-md mb-8">
                   We typically respond within 24 hours. For urgent inquiries,
                   email us directly.

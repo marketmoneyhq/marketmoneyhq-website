@@ -45,7 +45,7 @@ export function Testimonials() {
         <MotionWrapper className="mb-12 md:mb-16">
           <SectionHeader
             badge="Testimonials"
-            title="Trusted by learners worldwide"
+            title="Trusted By Learners Worldwide"
             description="Real stories from students who chose mentorship, consistency, and long-term skill development."
           />
         </MotionWrapper>
@@ -74,7 +74,7 @@ export function Testimonials() {
                       onClick={() => setExpanded((v) => !v)}
                       className="self-start mb-6 text-sm font-semibold text-[#0088ff] hover:text-[#4db8ff] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0088ff] rounded"
                     >
-                      {expanded ? "Read less" : "Read more"}
+                      {expanded ? "Read Less" : "Read More"}
                     </button>
                   )}
 

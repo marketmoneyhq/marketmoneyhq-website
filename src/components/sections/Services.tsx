@@ -3,8 +3,6 @@
 import Link from "next/link";
 import {
   LineChart,
-  Globe,
-  Megaphone,
   Bot,
   Briefcase,
   ArrowRight,
@@ -17,8 +15,6 @@ import { Card } from "@/components/ui/Card";
 
 const iconMap: Record<string, LucideIcon> = {
   LineChart,
-  Globe,
-  Megaphone,
   Bot,
   Briefcase,
 };
@@ -30,7 +26,7 @@ export function Services() {
         <MotionWrapper className="mb-16">
           <SectionHeader
             badge="Our Services"
-            title="Practical solutions for real growth"
+            title="Practical Solutions For Real Growth"
             description="From trading mentorship to AI consulting, we provide the education and services you need to build lasting wealth."
           />
         </MotionWrapper>

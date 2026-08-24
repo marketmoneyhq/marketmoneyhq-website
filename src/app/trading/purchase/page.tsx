@@ -16,7 +16,7 @@ export default function TradingPurchasePage() {
     <>
       <PageHero
         badge="Trading Education"
-        title="Sign to complete your purchase"
+        title="Sign To Complete Your Purchase"
         description="Review the Trading Disclosure Form, add your email and signature, then continue to Stripe. A signed copy will be emailed to you and Market Money HQ."
       />
       <section className="section-padding pt-0">

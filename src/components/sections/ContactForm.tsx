@@ -19,7 +19,7 @@ export function ContactForm() {
       <MotionWrapper variants={fadeInUp}>
         <div className="glass-card p-12 text-center">
           <CheckCircle className="w-12 h-12 text-emerald mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Message sent!</h3>
+          <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
           <p className="body-md">
             Thank you for reaching out. We&apos;ll get back to you within 24 hours.
           </p>
