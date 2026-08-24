@@ -225,7 +225,7 @@ export const faqs = [
   {
     question: "Who Is Market Money HQ For?",
     answer:
-      "Our programs are designed for people aged 20–45 who want to improve their financial future. Whether you're interested in trading, building a business, learning AI, or creating additional income streams — if you value education over hype, you're in the right place.",
+      "Our programs are designed for people aged 18 and up who want to improve their financial future. Whether you're interested in trading, building a business, learning AI, or creating additional income streams — if you value education over hype, you're in the right place.",
   },
   {
     question: "What Makes You Different From Other Trading Educators?",
