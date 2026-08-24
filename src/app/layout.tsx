@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope, Syne } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import {
+  IntroRevealProvider,
+  SiteShell,
+} from "@/components/providers/IntroReveal";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { IntroCurtain } from "@/components/sections/IntroCurtain";
@@ -63,12 +67,13 @@ export default function RootLayout({
                 filter:drop-shadow(0 0 40px rgba(0,136,255,.5))
               }
               html.mmhq-intro-lock,html.mmhq-intro-lock body{overflow:hidden!important}
+              html.mmhq-intro-pending #mmhq-site{opacity:0;transform:translateY(28px)}
             `,
           }}
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("mmhq-intro-lock");`,
+            __html: `document.documentElement.classList.add("mmhq-intro-lock","mmhq-intro-pending");`,
           }}
         />
         <script
@@ -93,10 +98,14 @@ export default function RootLayout({
           <img src="/logo.png" alt="" width={560} height={560} />
         </div>
         <ThemeProvider>
-          <IntroCurtain />
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
+          <IntroRevealProvider>
+            <IntroCurtain />
+            <SiteShell>
+              <Header />
+              <main id="main-content">{children}</main>
+              <Footer />
+            </SiteShell>
+          </IntroRevealProvider>
         </ThemeProvider>
       </body>
     </html>

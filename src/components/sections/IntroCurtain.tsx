@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useIntroReveal } from "@/components/providers/IntroReveal";
 
 const HOLD_MS = 1700;
 const OPEN_MS = 1100;
@@ -38,11 +39,15 @@ function LogoStage({ offset = false }: { offset?: boolean }) {
 
 function clearIntroLock() {
   document.getElementById(BOOT_ID)?.remove();
-  document.documentElement.classList.remove("mmhq-intro-lock");
+  document.documentElement.classList.remove(
+    "mmhq-intro-lock",
+    "mmhq-intro-pending"
+  );
   document.documentElement.style.overflow = "";
 }
 
 export function IntroCurtain() {
+  const { reveal } = useIntroReveal();
   const [phase, setPhase] = useState<"hold" | "open" | "done">("hold");
 
   useEffect(() => {
@@ -52,15 +57,20 @@ export function IntroCurtain() {
 
     if (reduceMotion) {
       clearIntroLock();
+      reveal();
       setPhase("done");
       return;
     }
 
     document.documentElement.style.overflow = "hidden";
-    // Curtains are already covering — drop the static first-paint layer
     document.getElementById(BOOT_ID)?.remove();
 
-    const openTimer = window.setTimeout(() => setPhase("open"), HOLD_MS);
+    const openTimer = window.setTimeout(() => {
+      setPhase("open");
+      // Start the site rising as the curtains begin to part
+      reveal();
+    }, HOLD_MS);
+
     const doneTimer = window.setTimeout(
       () => setPhase("done"),
       HOLD_MS + OPEN_MS
@@ -71,7 +81,7 @@ export function IntroCurtain() {
       window.clearTimeout(doneTimer);
       clearIntroLock();
     };
-  }, []);
+  }, [reveal]);
 
   useEffect(() => {
     if (phase === "done") {
@@ -88,10 +98,6 @@ export function IntroCurtain() {
       className={`fixed inset-0 z-[200] ${opening ? "pointer-events-none" : ""}`}
       aria-hidden
     >
-      {/*
-        No full-screen black behind the panels — as they open, the real site
-        shows through the gap immediately.
-      */}
       <div className="absolute inset-0 flex overflow-hidden">
         <div
           className="relative h-full w-1/2 overflow-hidden bg-black will-change-transform"

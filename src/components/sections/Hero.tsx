@@ -5,8 +5,11 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/metadata";
 import { HeroPhoneChart } from "@/components/sections/HeroPhoneChart";
+import { useIntroReveal } from "@/components/providers/IntroReveal";
 
 export function Hero() {
+  const { revealed } = useIntroReveal();
+
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-black" />
@@ -25,20 +28,24 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8 xl:gap-12">
           <div className="max-w-2xl">
             <motion.p
-              initial={{ opacity: 0.01, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={
+                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }
+              }
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-6 tracking-tight"
             >
               Market Money HQ
             </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0.01, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 22 }}
+              animate={
+                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
+              }
               transition={{
-                duration: 0.6,
-                delay: 0.06,
+                duration: 0.65,
+                delay: revealed ? 0.08 : 0,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl text-white tracking-tight leading-[1.1] mb-6"
@@ -51,11 +58,13 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0.01, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 22 }}
+              animate={
+                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
+              }
               transition={{
-                duration: 0.6,
-                delay: 0.12,
+                duration: 0.65,
+                delay: revealed ? 0.14 : 0,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="text-lg md:text-xl text-silver max-w-xl leading-relaxed mb-10"
@@ -66,11 +75,13 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0.01, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 22 }}
+              animate={
+                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
+              }
               transition={{
-                duration: 0.6,
-                delay: 0.18,
+                duration: 0.65,
+                delay: revealed ? 0.2 : 0,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="flex flex-col sm:flex-row items-start gap-4"
@@ -90,9 +101,20 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none lg:h-[560px] xl:h-[600px]">
-            <HeroPhoneChart />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={
+              revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }
+            }
+            transition={{
+              duration: 0.7,
+              delay: revealed ? 0.16 : 0,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none lg:h-[560px] xl:h-[600px]"
+          >
+            {revealed ? <HeroPhoneChart /> : null}
+          </motion.div>
         </div>
       </div>
 
@@ -102,7 +124,7 @@ export function Hero() {
       >
         <div className="w-5 h-9 rounded-full border border-silver/40 flex items-start justify-center p-1.5">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={revealed ? { y: [0, 10, 0] } : { y: 0 }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             className="w-1 h-2 rounded-full bg-emerald-light"
           />
