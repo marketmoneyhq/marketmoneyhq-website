@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useIntroReveal } from "@/components/providers/IntroReveal";
 
 const HOLD_MS = 1100;
@@ -38,6 +39,7 @@ function LogoStage({ offset = false }: { offset?: boolean }) {
 }
 
 function clearIntroLock() {
+  // Boot node is script-injected (not React-managed) — safe to remove
   document.getElementById(BOOT_ID)?.remove();
   document.documentElement.classList.remove(
     "mmhq-intro-lock",
@@ -47,10 +49,30 @@ function clearIntroLock() {
 }
 
 export function IntroCurtain() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const { reveal } = useIntroReveal();
-  const [phase, setPhase] = useState<"hold" | "open" | "done">("hold");
+  const playedRef = useRef(!isHome);
+  const [phase, setPhase] = useState<"hold" | "open" | "done">(() =>
+    isHome ? "hold" : "done"
+  );
 
   useEffect(() => {
+    if (!isHome) {
+      clearIntroLock();
+      reveal();
+      playedRef.current = true;
+      setPhase("done");
+      return;
+    }
+
+    if (playedRef.current) {
+      clearIntroLock();
+      reveal();
+      setPhase("done");
+      return;
+    }
+
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -58,6 +80,7 @@ export function IntroCurtain() {
     if (reduceMotion) {
       clearIntroLock();
       reveal();
+      playedRef.current = true;
       setPhase("done");
       return;
     }
@@ -65,27 +88,30 @@ export function IntroCurtain() {
     document.documentElement.style.overflow = "hidden";
     document.getElementById(BOOT_ID)?.remove();
 
+    let cancelled = false;
+
     const openTimer = window.setTimeout(() => {
-      setPhase("open");
+      if (!cancelled) setPhase("open");
     }, HOLD_MS);
 
-    // Reveal after curtains finish parting — then hero lines rise in
     const revealTimer = window.setTimeout(() => {
-      reveal();
+      if (!cancelled) reveal();
     }, HOLD_MS + OPEN_MS);
 
-    const doneTimer = window.setTimeout(
-      () => setPhase("done"),
-      HOLD_MS + OPEN_MS + 40
-    );
+    const doneTimer = window.setTimeout(() => {
+      if (!cancelled) {
+        playedRef.current = true;
+        setPhase("done");
+      }
+    }, HOLD_MS + OPEN_MS + 40);
 
     return () => {
+      cancelled = true;
       window.clearTimeout(openTimer);
       window.clearTimeout(revealTimer);
       window.clearTimeout(doneTimer);
-      clearIntroLock();
     };
-  }, [reveal]);
+  }, [reveal, isHome]);
 
   useEffect(() => {
     if (phase === "done") {
@@ -93,7 +119,7 @@ export function IntroCurtain() {
     }
   }, [phase]);
 
-  if (phase === "done") return null;
+  if (!isHome || phase === "done") return null;
 
   const opening = phase === "open";
 

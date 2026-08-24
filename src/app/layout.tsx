@@ -72,7 +72,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("mmhq-intro-lock","mmhq-intro-pending");`,
+            __html: `(function(){try{var p=location.pathname;if(p!=="/"&&p!=="")return;document.documentElement.classList.add("mmhq-intro-lock","mmhq-intro-pending");}catch(e){}})();`,
           }}
         />
         <script
@@ -91,11 +91,12 @@ export default function RootLayout({
       <body
         className={`${sans.variable} ${display.variable} font-sans font-medium`}
       >
-        <div id="mmhq-intro-boot" aria-hidden="true">
-          {/* Raw img so the logo paints with the first HTML — before React */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="" width={560} height={560} />
-        </div>
+        {/* Boot overlay is injected outside React so removing it can't break navigation */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var p=location.pathname;if(p!=="/"&&p!=="")return;if(document.getElementById("mmhq-intro-boot"))return;var d=document.createElement("div");d.id="mmhq-intro-boot";d.setAttribute("aria-hidden","true");var i=document.createElement("img");i.src="/logo.png";i.alt="";i.width=560;i.height=560;d.appendChild(i);document.body.insertBefore(d,document.body.firstChild);}catch(e){}})();`,
+          }}
+        />
         <ThemeProvider>
           <IntroRevealProvider>
             <IntroCurtain />
