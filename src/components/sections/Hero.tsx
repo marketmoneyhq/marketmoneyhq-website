@@ -60,8 +60,8 @@ export function Hero() {
                 revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }
               }
               transition={{
-                duration: 0.8,
-                delay: revealed ? 0.35 : 0,
+                duration: 0.7,
+                delay: revealed ? 0.28 : 0,
                 ease: revealEase,
               }}
               className="text-lg md:text-xl text-silver max-w-xl leading-relaxed mb-10"
@@ -77,8 +77,8 @@ export function Hero() {
                 revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }
               }
               transition={{
-                duration: 0.8,
-                delay: revealed ? 0.46 : 0,
+                duration: 0.7,
+                delay: revealed ? 0.38 : 0,
                 ease: revealEase,
               }}
               className="flex flex-col sm:flex-row items-start gap-4"
@@ -104,8 +104,8 @@ export function Hero() {
               revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{
-              duration: 0.8,
-              delay: revealed ? 0.55 : 0,
+              duration: 0.7,
+              delay: revealed ? 0.45 : 0,
               ease: revealEase,
             }}
             className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none lg:h-[560px] xl:h-[600px]"

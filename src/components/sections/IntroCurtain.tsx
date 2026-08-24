@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useIntroReveal } from "@/components/providers/IntroReveal";
 
-const HOLD_MS = 1700;
-const OPEN_MS = 1100;
+const HOLD_MS = 1100;
+const OPEN_MS = 900;
 const BOOT_ID = "mmhq-intro-boot";
 
 function Logo() {

@@ -37,7 +37,7 @@ export function MaskReveal({
             initial={{ y: "110%" }}
             animate={{ y: start ? "0%" : "110%" }}
             transition={{
-              duration: 1,
+              duration: 0.85,
               delay: start ? delay + i * stagger : 0,
               ease: revealEase,
             }}
