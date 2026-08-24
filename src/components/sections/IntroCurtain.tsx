@@ -5,7 +5,6 @@ import Image from "next/image";
 
 const HOLD_MS = 1700;
 const OPEN_MS = 1100;
-const BOOT_ID = "mmhq-intro-boot";
 
 function Logo() {
   return (
@@ -25,6 +24,7 @@ function Logo() {
   );
 }
 
+/** Shared stage so hold logo and curtain halves share the exact same centering */
 function LogoStage({ offset = false }: { offset?: boolean }) {
   return (
     <div
@@ -36,17 +36,9 @@ function LogoStage({ offset = false }: { offset?: boolean }) {
   );
 }
 
-function removeBootOverlay() {
-  document.getElementById(BOOT_ID)?.remove();
-}
-
-function unlockScroll() {
-  document.documentElement.classList.remove("mmhq-intro-lock");
-  document.documentElement.style.overflow = "";
-}
-
 export function IntroCurtain() {
   const [phase, setPhase] = useState<"hold" | "open" | "done">("hold");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
@@ -54,15 +46,16 @@ export function IntroCurtain() {
     ).matches;
 
     if (reduceMotion) {
-      removeBootOverlay();
-      unlockScroll();
       setPhase("done");
       return;
     }
 
     document.documentElement.style.overflow = "hidden";
-    // React curtain is covering — safe to drop the static boot layer
-    removeBootOverlay();
+
+    // Fade in only after layout is settled — no position/scale movement
+    const show = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => setVisible(true));
+    });
 
     const openTimer = window.setTimeout(() => setPhase("open"), HOLD_MS);
     const doneTimer = window.setTimeout(
@@ -71,15 +64,16 @@ export function IntroCurtain() {
     );
 
     return () => {
+      window.cancelAnimationFrame(show);
       window.clearTimeout(openTimer);
       window.clearTimeout(doneTimer);
-      unlockScroll();
+      document.documentElement.style.overflow = "";
     };
   }, []);
 
   useEffect(() => {
     if (phase === "done") {
-      unlockScroll();
+      document.documentElement.style.overflow = "";
     }
   }, [phase]);
 
@@ -89,11 +83,12 @@ export function IntroCurtain() {
 
   return (
     <div
-      className={`fixed inset-0 z-[200] bg-black ${
-        opening ? "pointer-events-none" : ""
-      }`}
+      className={`fixed inset-0 z-[200] bg-black transition-opacity duration-300 ${
+        visible ? "opacity-100" : "opacity-0"
+      } ${opening ? "pointer-events-none" : ""}`}
       aria-hidden
     >
+      {/* Curtains — already aligned as one full centered logo while closed */}
       <div className="absolute inset-0 flex overflow-hidden">
         <div
           className="relative h-full w-1/2 overflow-hidden bg-black will-change-transform"
