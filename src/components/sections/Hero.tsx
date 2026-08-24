@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/metadata";
 import { HeroPhoneChart } from "@/components/sections/HeroPhoneChart";
 import { useIntroReveal } from "@/components/providers/IntroReveal";
+import { MaskReveal, revealEase } from "@/lib/animations";
 
 export function Hero() {
   const { revealed } = useIntroReveal();
@@ -27,45 +28,41 @@ export function Hero() {
       <div className="container-custom relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-32 md:pb-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8 xl:gap-12">
           <div className="max-w-2xl">
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={
-                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }
-              }
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-6 tracking-tight"
-            >
-              Market Money HQ
-            </motion.p>
+            <p className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-6 tracking-tight">
+              <MaskReveal
+                start={revealed}
+                delay={0}
+                lines={["Market Money HQ"]}
+              />
+            </p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={
-                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
-              }
-              transition={{
-                duration: 0.65,
-                delay: revealed ? 0.08 : 0,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl text-white tracking-tight leading-[1.1] mb-6"
-            >
-              <span className="block">Build Skills.</span>
-              <span className="block">Create Wealth.</span>
-              <span className="block whitespace-nowrap text-emerald-light">
-                Live with Freedom!
-              </span>
-            </motion.h1>
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl text-white tracking-tight leading-[1.1] mb-6">
+              <MaskReveal
+                start={revealed}
+                delay={0.1}
+                stagger={0.08}
+                lines={[
+                  "Build Skills.",
+                  "Create Wealth.",
+                  <span
+                    key="freedom"
+                    className="whitespace-nowrap text-emerald-light"
+                  >
+                    Live with Freedom!
+                  </span>,
+                ]}
+              />
+            </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={
-                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
+                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }
               }
               transition={{
-                duration: 0.65,
-                delay: revealed ? 0.14 : 0,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.8,
+                delay: revealed ? 0.35 : 0,
+                ease: revealEase,
               }}
               className="text-lg md:text-xl text-silver max-w-xl leading-relaxed mb-10"
             >
@@ -75,14 +72,14 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={
-                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
+                revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }
               }
               transition={{
-                duration: 0.65,
-                delay: revealed ? 0.2 : 0,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.8,
+                delay: revealed ? 0.46 : 0,
+                ease: revealEase,
               }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
@@ -102,14 +99,14 @@ export function Hero() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={
-              revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }
+              revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{
-              duration: 0.7,
-              delay: revealed ? 0.16 : 0,
-              ease: [0.22, 1, 0.36, 1],
+              duration: 0.8,
+              delay: revealed ? 0.55 : 0,
+              ease: revealEase,
             }}
             className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none lg:h-[560px] xl:h-[600px]"
           >

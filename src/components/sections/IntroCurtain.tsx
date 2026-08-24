@@ -67,17 +67,21 @@ export function IntroCurtain() {
 
     const openTimer = window.setTimeout(() => {
       setPhase("open");
-      // Start the site rising as the curtains begin to part
-      reveal();
     }, HOLD_MS);
+
+    // Reveal after curtains finish parting — then hero lines rise in
+    const revealTimer = window.setTimeout(() => {
+      reveal();
+    }, HOLD_MS + OPEN_MS);
 
     const doneTimer = window.setTimeout(
       () => setPhase("done"),
-      HOLD_MS + OPEN_MS
+      HOLD_MS + OPEN_MS + 40
     );
 
     return () => {
       window.clearTimeout(openTimer);
+      window.clearTimeout(revealTimer);
       window.clearTimeout(doneTimer);
       clearIntroLock();
     };

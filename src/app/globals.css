@@ -151,4 +151,12 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Overflow mask so text rises into view (intro + scroll reveals) */
+  .mask-line {
+    display: block;
+    overflow: hidden;
+    margin-bottom: -0.12em;
+    padding-bottom: 0.12em;
+  }
 }

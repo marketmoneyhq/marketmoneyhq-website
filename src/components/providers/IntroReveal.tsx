@@ -8,7 +8,6 @@ import {
   useMemo,
   useState,
 } from "react";
-import { motion } from "framer-motion";
 
 type IntroRevealContextValue = {
   revealed: boolean;
@@ -58,25 +57,7 @@ export function IntroRevealProvider({
   );
 }
 
-/** Wraps header/main/footer — rises in smoothly when the intro reveals the site */
+/** Wraps header/main/footer — stays in place so hero can do the line rises */
 export function SiteShell({ children }: { children: React.ReactNode }) {
-  const { revealed } = useIntroReveal();
-
-  return (
-    <motion.div
-      id="mmhq-site"
-      initial={false}
-      animate={
-        revealed
-          ? { opacity: 1, y: 0 }
-          : { opacity: 0, y: 28 }
-      }
-      transition={{
-        duration: 0.75,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div id="mmhq-site">{children}</div>;
 }

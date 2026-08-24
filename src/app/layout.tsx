@@ -67,7 +67,6 @@ export default function RootLayout({
                 filter:drop-shadow(0 0 40px rgba(0,136,255,.5))
               }
               html.mmhq-intro-lock,html.mmhq-intro-lock body{overflow:hidden!important}
-              html.mmhq-intro-pending #mmhq-site{opacity:0;transform:translateY(28px)}
             `,
           }}
         />
