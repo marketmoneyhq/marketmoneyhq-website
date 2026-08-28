@@ -32,7 +32,7 @@ const display = Syne({
 export const metadata: Metadata = {
   ...createMetadata({}),
   title: {
-    default: "Market Money HQ — Build Skills. Create Wealth. Live with Freedom.",
+    default: "Market Money HQ — Build Skills. Create Wealth. Live with Freedom!",
     template: "%s | Market Money HQ",
   },
   icons: {

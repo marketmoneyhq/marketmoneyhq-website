@@ -22,7 +22,7 @@ const defaultKeywords = [
 
 export const siteConfig = {
   name: siteName,
-  tagline: "Build Skills. Create Wealth. Live with Freedom.",
+  tagline: "Build Skills. Create Wealth. Live with Freedom!",
   description: defaultDescription,
   url: siteUrl,
   email: "marketmoneyhq@gmail.com",

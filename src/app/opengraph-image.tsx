@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Market Money HQ — Build Skills. Create Wealth. Live with Freedom.";
+export const alt = "Market Money HQ — Build Skills. Create Wealth. Live with Freedom!";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -40,7 +40,7 @@ export default function OpenGraphImage() {
             maxWidth: 900,
           }}
         >
-          Build Skills. Create Wealth. Live with Freedom.
+          Build Skills. Create Wealth. Live with Freedom!
         </div>
         <div style={{ fontSize: 24, color: "#C8CDD5", maxWidth: 800 }}>
           Education & mentorship for trading, business, AI, and the digital
