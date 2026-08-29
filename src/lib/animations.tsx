@@ -18,12 +18,15 @@ export const fadeInUp: Variants = {
 export function MaskReveal({
   lines,
   className,
+  lineClassName,
   delay = 0,
   stagger = 0.08,
   start = true,
 }: {
   lines: React.ReactNode[];
   className?: string;
+  /** Optional class per line (applied to the visible text span) */
+  lineClassName?: (string | undefined)[];
   delay?: number;
   stagger?: number;
   start?: boolean;
@@ -33,7 +36,9 @@ export function MaskReveal({
       {lines.map((line, i) => (
         <span key={i} className="mask-line">
           <motion.span
-            className="block"
+            className={["block pr-[0.2em]", lineClassName?.[i]]
+              .filter(Boolean)
+              .join(" ")}
             initial={{ y: "110%" }}
             animate={{ y: start ? "0%" : "110%" }}
             transition={{

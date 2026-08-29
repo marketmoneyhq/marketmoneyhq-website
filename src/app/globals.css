@@ -157,6 +157,7 @@
     display: block;
     overflow: hidden;
     margin-bottom: -0.12em;
-    padding-bottom: 0.12em;
+    padding-bottom: 0.14em;
+    padding-right: 0.2em;
   }
 }

@@ -41,15 +41,11 @@ export function Hero() {
                 start={revealed}
                 delay={0.1}
                 stagger={0.08}
+                lineClassName={[undefined, undefined, "text-emerald-light"]}
                 lines={[
                   "Build Skills.",
                   "Create Wealth.",
-                  <span
-                    key="freedom"
-                    className="whitespace-nowrap text-emerald-light"
-                  >
-                    Live with Freedom!
-                  </span>,
+                  "Live with Freedom!",
                 ]}
               />
             </h1>
