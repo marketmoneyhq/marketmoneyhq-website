@@ -136,18 +136,20 @@ export function HeroPhoneChart() {
                 </div>
               </div>
 
-              <p className="text-[11px] font-medium tracking-wide text-silver">
-                Portfolio Value
-              </p>
-              <p className="mt-1 font-display text-[1.65rem] font-bold leading-none tracking-tight text-white sm:text-[1.85rem] tabular-nums">
-                {formatMoney(value)}
-              </p>
-              <p className="mt-2 flex items-center gap-1 text-[11px] font-semibold text-[#4DB8FF] tabular-nums">
-                <span aria-hidden>▲</span>
-                <span>
-                  +{formatMoney(gain)} ({gainPct.toFixed(2)}%) Today
-                </span>
-              </p>
+              <div className="text-center">
+                <p className="text-[11px] font-medium tracking-wide text-silver">
+                  Portfolio Value
+                </p>
+                <p className="mt-1 font-display text-[1.35rem] font-bold leading-none tracking-tight text-white sm:text-[1.85rem] tabular-nums whitespace-nowrap">
+                  {formatMoney(value)}
+                </p>
+                <p className="mt-2 flex items-center justify-center gap-1 text-[11px] font-semibold text-[#4DB8FF] tabular-nums">
+                  <span aria-hidden>▲</span>
+                  <span>
+                    +{formatMoney(gain)} ({gainPct.toFixed(2)}%) Today
+                  </span>
+                </p>
+              </div>
 
               <div className="relative mt-5 h-[120px] w-full">
                 <svg
