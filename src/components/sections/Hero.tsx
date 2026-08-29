@@ -36,18 +36,27 @@ export function Hero() {
               />
             </p>
 
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl text-white tracking-tight leading-[1.1] mb-6">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl text-white tracking-tight leading-[1.15] mb-6">
               <MaskReveal
                 start={revealed}
                 delay={0.1}
                 stagger={0.08}
-                lineClassName={[undefined, undefined, "text-emerald-light"]}
-                lines={[
-                  "Build Skills.",
-                  "Create Wealth.",
-                  "Live with Freedom!",
-                ]}
+                lines={["Build Skills.", "Create Wealth."]}
               />
+              <motion.span
+                className="block whitespace-nowrap text-emerald-light"
+                initial={{ opacity: 0, y: 22 }}
+                animate={
+                  revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }
+                }
+                transition={{
+                  duration: 0.85,
+                  delay: revealed ? 0.26 : 0,
+                  ease: revealEase,
+                }}
+              >
+                Live with Freedom!
+              </motion.span>
             </h1>
 
             <motion.p
