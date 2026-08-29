@@ -110,7 +110,7 @@ export function HeroPhoneChart() {
         initial={{ opacity: 0.01, y: 28, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-[230px] sm:w-[260px] md:w-[280px]"
+        className="relative z-10 w-[244px] sm:w-[260px] md:w-[280px]"
       >
         <div
           className="relative rounded-[2.35rem] border border-white/15 bg-[#0a0a0a] p-[9px]"
@@ -139,10 +139,10 @@ export function HeroPhoneChart() {
               <p className="text-[11px] font-medium tracking-wide text-silver">
                 Portfolio Value
               </p>
-              <p className="mt-1 text-center font-display text-[1.35rem] font-bold leading-none tracking-tight text-white sm:text-left sm:text-[1.85rem] tabular-nums whitespace-nowrap">
+              <p className="mt-1 w-full text-left font-display text-[1.25rem] font-bold leading-none tracking-tight text-white tabular-nums whitespace-nowrap sm:text-[1.85rem]">
                 {formatMoney(value)}
               </p>
-              <p className="mt-2 flex flex-nowrap items-center gap-1 whitespace-nowrap text-[9px] font-semibold tracking-tight text-[#4DB8FF] tabular-nums sm:text-[11px] sm:tracking-normal">
+              <p className="mt-2 flex w-full flex-nowrap items-center gap-1 whitespace-nowrap text-[9px] font-semibold tracking-tight text-[#4DB8FF] tabular-nums sm:text-[11px] sm:tracking-normal">
                 <span aria-hidden className="shrink-0">
                   ▲
                 </span>
