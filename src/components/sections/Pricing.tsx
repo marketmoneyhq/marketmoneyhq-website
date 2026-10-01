@@ -48,10 +48,8 @@ export function Pricing() {
               >
                 <div
                   className={cn(
-                    "relative flex h-full flex-col rounded-3xl border p-6 md:p-8",
-                    plan.highlighted
-                      ? "border-[#0088ff]/40 bg-[#0088ff]/5 shadow-[0_0_40px_rgba(0,136,255,0.12)]"
-                      : "border-gray-200/80 bg-surface/60 dark:border-white/10 dark:bg-charcoal/40"
+                    "group relative flex h-full flex-col glass-card glass-card-glow p-6 md:p-8",
+                    plan.highlighted && "border-[#0088ff]/40 bg-[#0088ff]/5"
                   )}
                 >
                   <div className="mb-6 flex items-start justify-between gap-4">
@@ -63,7 +61,7 @@ export function Pricing() {
                         {plan.name}
                       </h3>
                     </div>
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald/10">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald/10 transition-shadow duration-300 group-hover:shadow-[0_0_20px_rgba(0,136,255,0.45)]">
                       <Icon className="h-5 w-5 text-emerald" />
                     </div>
                   </div>
