@@ -1,99 +1,102 @@
 export const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  {
-    name: "Services",
-    href: "/services",
-    children: [
-      {
-        name: "Trading Education",
-        href: "/trading",
-        description: "Learn with Discipline & Mentorship",
-      },
-      {
-        name: "Business Development",
-        href: "/business-development",
-        description: "Web Development & Marketing",
-      },
-      {
-        name: "AI",
-        href: "/ai",
-        description: "Learn How To Scale with AI",
-      },
-    ],
-  },
+  { name: "Trading", href: "/trading" },
   { name: "Resources", href: "/resources" },
   { name: "Contact", href: "/contact" },
 ] as const;
 
 export const pillars = [
   {
-    id: "trading",
-    title: "Trading Education",
+    id: "education",
+    title: "Structured Education",
     description:
-      "Develop the skills, discipline, and risk management needed to navigate markets with confidence. Our foundation in trading teaches you how to think, not just trade.",
-    icon: "TrendingUp",
+      "A clear curriculum covering market fundamentals, technical analysis, and strategy — taught with clarity, not hype.",
+    icon: "BookOpen",
     href: "/trading",
-    features: ["Structured Curriculum", "Live Mentorship", "Risk Management", "Trading Psychology"],
-  },
-  {
-    id: "business",
-    title: "Business Development",
-    description:
-      "From entrepreneurship to digital marketing, we help you build businesses that generate real income and create lasting opportunities in the modern economy.",
-    icon: "Building2",
-    href: "/business-development",
-    features: ["Website Development", "Digital Marketing", "Or Both Together", "Brand Strategy"],
-  },
-  {
-    id: "ai",
-    title: "AI",
-    description:
-      "Leverage artificial intelligence and modern technology to automate workflows, increase productivity, and build smarter businesses for the future.",
-    icon: "Sparkles",
-    href: "/ai",
     features: [
-      "AI Automation",
-      "Productivity Tools",
-      "Digital Workflows",
-      "Future-Ready Skills",
-      "AI Mentorship & Guidance",
+      "Market Fundamentals",
+      "Technical Analysis",
+      "Strategy Development",
+      "Step-By-Step Curriculum",
+    ],
+  },
+  {
+    id: "risk",
+    title: "Risk Management",
+    description:
+      "Learn to protect capital first. Our risk framework is the foundation of every trading decision we teach.",
+    icon: "Shield",
+    href: "/trading",
+    features: [
+      "Position Sizing",
+      "Capital Preservation",
+      "Trade Planning",
+      "Drawdown Control",
+    ],
+  },
+  {
+    id: "psychology",
+    title: "Trading Psychology",
+    description:
+      "Master the mental game — discipline, patience, and emotional control that separate consistent traders from the rest.",
+    icon: "Brain",
+    href: "/trading",
+    features: [
+      "Emotional Control",
+      "Discipline & Patience",
+      "Process Over Outcome",
+      "Mindset Training",
+    ],
+  },
+  {
+    id: "mentorship",
+    title: "Live Mentorship",
+    description:
+      "Learn directly from experienced mentors with real-time guidance, feedback, and accountability on your journey.",
+    icon: "Users",
+    href: "/trading",
+    features: [
+      "One-On-One Guidance",
+      "Trade Reviews",
+      "Live Support",
+      "Accountability",
     ],
   },
 ] as const;
 
 export const services = [
   {
-    id: "trading-mentorship",
-    title: "Trading Education",
+    id: "structured-curriculum",
+    title: "Structured Curriculum",
     description:
-      "Personalized guidance from experienced mentors who prioritize education, risk management, and long-term skill development over quick wins.",
+      "A complete trading education path — from foundations to advanced strategy — designed for real skill development.",
     href: "/trading",
-    icon: "LineChart",
+    icon: "BookOpen",
   },
   {
-    id: "business-development",
-    title: "Business Development",
+    id: "risk-framework",
+    title: "Risk Framework",
     description:
-      "Grow online with custom website development, digital marketing, or a combined strategy built around your goals.",
-    href: "/business-development",
-    icon: "Briefcase",
+      "Protect your capital with a proven risk management approach that comes before every trade decision.",
+    href: "/trading",
+    icon: "Shield",
   },
   {
-    id: "ai-consulting",
-    title: "AI Consulting",
+    id: "live-mentorship",
+    title: "Live Mentorship",
     description:
-      "Practical AI implementation for entrepreneurs and small businesses. Automate repetitive tasks, enhance productivity, and stay ahead of the curve.",
-    href: "/ai",
-    icon: "Bot",
+      "Personalized guidance from mentors who prioritize education, psychology, and long-term growth over quick wins.",
+    href: "/trading",
+    icon: "Users",
   },
 ] as const;
 
 export const stats = [
-  { value: 3, suffix: "", label: "Core Learning Pillars" },
-  { value: 5, suffix: "", label: "Service Pathways" },
-  { value: 4, suffix: "", label: "Trading Curriculum Phases" },
-  { value: 100, suffix: "%", label: "Education-First Approach" },
+  { value: 4, suffix: "", label: "Curriculum Focus Areas" },
+  { value: 1, suffix: "", label: "Education-First Mission" },
+  { value: 100, suffix: "%", label: "Skill-Based Approach" },
+  { value: 0, suffix: "", label: "Get-Rich-Quick Promises" },
 ] as const;
 
 export const testimonials = [
@@ -215,7 +218,7 @@ export const faqs = [
   {
     question: "Is Market Money HQ A Get-Rich-Quick Program?",
     answer:
-      "Absolutely not. We are an education and mentorship company focused on helping you develop valuable skills over time. Financial freedom is built through consistent learning, smart decisions, and long-term thinking — not shortcuts.",
+      "Absolutely not. We are a trading education and mentorship company focused on helping you develop real skills over time. Consistency is built through learning, risk management, and long-term thinking — not shortcuts.",
   },
   {
     question: "Do You Guarantee Trading Profits?",
@@ -225,22 +228,22 @@ export const faqs = [
   {
     question: "Who Is Market Money HQ For?",
     answer:
-      "Our programs are designed for people aged 18 and up who want to improve their financial future. Whether you're interested in trading, building a business, learning AI, or creating additional income streams — if you value education over hype, you're in the right place.",
+      "Our trading programs are designed for people aged 18 and up who want to learn markets the right way. Whether you are brand new or looking to sharpen your discipline, if you value education over hype, you are in the right place.",
   },
   {
     question: "What Makes You Different From Other Trading Educators?",
     answer:
-      "We don't sell trading — we teach people how to build skills that create freedom. Trading is one pillar among many, including business development, website design, digital marketing, and AI. Our holistic approach prepares you for the full digital economy.",
+      "We teach people how to think, not just what to click. Our focus is structured education, risk management, trading psychology, and live mentorship — building skills that last instead of selling signals or overnight promises.",
   },
   {
     question: "How Do I Get Started?",
     answer:
-      "Book a free consultation to discuss your goals and find the right program for you. We'll help you understand your options and create a path forward based on where you are today and where you want to be.",
+      "Book a free consultation to discuss your goals and find the right trading education path for you. We will help you understand your options based on where you are today and where you want to be.",
   },
   {
     question: "Do You Offer One-On-One Mentorship?",
     answer:
-      "Yes. We offer personalized mentorship across trading, business development, and AI consulting. Our mentors work with you to develop a customized learning plan aligned with your goals and experience level.",
+      "Yes. We offer personalized trading mentorship with customized learning plans aligned to your experience level, goals, and pace.",
   },
 ] as const;
 
@@ -249,25 +252,25 @@ export const timeline = [
     year: "Foundation",
     title: "Built On Real Experience",
     description:
-      "Market Money HQ was founded on a simple belief: true wealth comes from developing skills, not chasing shortcuts. Our team brings years of experience in trading, business, and technology.",
+      "Market Money HQ was founded on a simple belief: lasting results in the markets come from developing skills, not chasing shortcuts.",
   },
   {
-    year: "Evolution",
-    title: "Beyond The Charts",
+    year: "Focus",
+    title: "Trading Education First",
     description:
-      "We expanded beyond trading education to encompass the full digital economy — business development, website design, digital marketing, and AI consulting.",
+      "We doubled down on what matters most — structured trading education, risk management, psychology, and mentorship that builds real competence.",
   },
   {
     year: "Mission",
     title: "Skills That Create Freedom",
     description:
-      "Today, we serve thousands of students worldwide, helping them build financial independence through practical education and mentorship.",
+      "Today, we help students develop the discipline and decision-making skills needed to approach markets with clarity and confidence.",
   },
   {
     year: "Vision",
-    title: "The Future Of Education",
+    title: "Education That Lasts",
     description:
-      "We're building toward a world where everyday people have access to the skills, tools, and mentorship needed to create income, build wealth, and live with greater freedom.",
+      "We are building toward a standard of trading education where everyday people get honest mentorship, practical skills, and a process they can trust.",
   },
 ] as const;
 
@@ -298,114 +301,49 @@ export const tradingFeatures = [
   },
 ] as const;
 
-export const websiteServices = [
-  {
-    title: "Custom Websites",
-    description: "Beautiful, fast, and conversion-optimized websites tailored to your brand and business goals.",
-    icon: "Layout",
-  },
-  {
-    title: "SEO Optimization",
-    description: "Rank higher in search results with technical SEO, content strategy, and on-page optimization.",
-    icon: "Search",
-  },
-  {
-    title: "Brand Strategy",
-    description: "Define your brand identity, messaging, and visual language to stand out in your market.",
-    icon: "Palette",
-  },
-  {
-    title: "Google Business",
-    description: "Optimize your Google Business Profile to attract local customers and build credibility.",
-    icon: "MapPin",
-  },
-  {
-    title: "Sales Funnels",
-    description: "Design and build high-converting funnels that turn visitors into leads and customers.",
-    icon: "Filter",
-  },
-  {
-    title: "Lead Generation",
-    description: "Strategic systems and campaigns designed to attract qualified leads consistently.",
-    icon: "UserPlus",
-  },
-  {
-    title: "AI Automation",
-    description: "Integrate AI tools into your website and workflows to save time and enhance user experience.",
-    icon: "Zap",
-  },
-] as const;
-
-export const aiFeatures = [
-  {
-    title: "Workflow Automation",
-    description: "Automate repetitive tasks so you can focus on high-value work that grows your business.",
-    icon: "Workflow",
-  },
-  {
-    title: "Content Creation",
-    description: "Use AI to streamline content production while maintaining your unique voice and quality standards.",
-    icon: "PenTool",
-  },
-  {
-    title: "Customer Support",
-    description: "Implement AI-powered chatbots and support systems that serve customers 24/7.",
-    icon: "Headphones",
-  },
-  {
-    title: "Data Analysis",
-    description: "Turn raw data into actionable insights with AI-powered analytics and reporting tools.",
-    icon: "BarChart3",
-  },
-  {
-    title: "Productivity Tools",
-    description: "Discover and implement the right AI tools to multiply your output without multiplying your hours.",
-    icon: "Clock",
-  },
-  {
-    title: "Business Strategy",
-    description: "Leverage AI to identify opportunities, optimize operations, and make smarter business decisions.",
-    icon: "Lightbulb",
-  },
-] as const;
-
 export const resources = [
   {
     title: "Trading Fundamentals",
     category: "Trading",
-    description: "Essential concepts every trader should understand before placing their first trade.",
+    description:
+      "Essential concepts every trader should understand before placing their first trade.",
     readTime: "8 min read",
   },
   {
     title: "Risk Management 101",
     category: "Trading",
-    description: "Why protecting your capital is the most important skill in trading.",
+    description:
+      "Why protecting your capital is the most important skill in trading.",
     readTime: "6 min read",
   },
   {
-    title: "Starting Your Online Business",
-    category: "Business",
-    description: "A practical guide to launching a digital business from scratch.",
-    readTime: "12 min read",
-  },
-  {
-    title: "Digital Marketing Essentials",
-    category: "Business",
-    description: "Core strategies for attracting customers in the digital age.",
+    title: "Reading The Charts",
+    category: "Trading",
+    description:
+      "A practical introduction to support, resistance, trends, and market structure.",
     readTime: "10 min read",
   },
   {
-    title: "AI For Entrepreneurs",
-    category: "AI",
-    description: "How to identify and implement AI tools that actually save you time.",
+    title: "Trading Psychology Basics",
+    category: "Mindset",
+    description:
+      "How emotions affect decisions — and how to build discipline around your process.",
     readTime: "7 min read",
+  },
+  {
+    title: "Building A Trade Plan",
+    category: "Trading",
+    description:
+      "Why every serious trader needs rules before they click buy or sell.",
+    readTime: "9 min read",
   },
   {
     title: "Building Financial Freedom",
     category: "Mindset",
-    description: "The mindset shifts required to move from employee to wealth builder.",
+    description:
+      "The mindset shifts required to treat trading as a skill, not a shortcut.",
     readTime: "9 min read",
   },
 ] as const;
 
-export const resourceCategories = ["All", "Trading", "Business", "AI", "Mindset"] as const;
+export const resourceCategories = ["All", "Trading", "Mindset"] as const;

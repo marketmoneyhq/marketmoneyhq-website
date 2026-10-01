@@ -11,7 +11,7 @@ export function Mission() {
           <MotionWrapper variants={fadeInUp}>
             <SectionHeader
               badge="Our Mission"
-              title="Skills That Create Freedom, Not Shortcuts"
+              title="Trading Skills That Create Freedom, Not Shortcuts"
               align="left"
             />
           </MotionWrapper>
@@ -19,25 +19,24 @@ export function Mission() {
           <MotionWrapper variants={fadeInUp} delay={0.2}>
             <div className="space-y-6 body-md">
               <p>
-                Market Money HQ exists to help everyday people develop the skills,
-                knowledge, and mindset needed to create income in the digital economy.
+                Market Money HQ exists to help everyday people develop the
+                trading skills, discipline, and mindset needed to navigate markets
+                with clarity — not hype.
               </p>
               <p>
-                We believe financial freedom, time freedom, and location freedom become
-                possible when you learn how to make your money work for you instead of
-                constantly working for money.
+                We believe financial freedom becomes more possible when you learn
+                how markets work, how to manage risk, and how to make decisions
+                based on process instead of emotion.
               </p>
               <p>
-                Our foundation begins with trading, but our vision extends far beyond
-                the charts. Through education, mentorship, investing, business
-                development, website design, digital marketing, and emerging
-                technologies like AI, we equip people with practical tools to build
-                wealth and take greater control of their future.
+                Our focus is trading education: structured curriculum, risk
+                management, trading psychology, and live mentorship. We teach you
+                how to think — not just what to trade.
               </p>
               <p className="text-charcoal dark:text-white font-medium">
-                This isn&apos;t about getting rich overnight. It&apos;s about building
-                real skills, making smarter financial decisions, and creating a life
-                with more freedom, flexibility, and abundance.
+                This isn&apos;t about getting rich overnight. It&apos;s about
+                building real trading skills, making smarter decisions, and
+                creating a foundation for greater freedom over time.
               </p>
             </div>
           </MotionWrapper>

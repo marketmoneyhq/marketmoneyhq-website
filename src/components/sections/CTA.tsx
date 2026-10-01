@@ -19,7 +19,7 @@ export function CTA({
   description = "Book a free consultation and discover how Market Money HQ can help you develop the skills, knowledge, and mindset for financial independence.",
   primaryLabel = "Book a Consultation",
   primaryHref = siteConfig.calendlyUrl,
-  secondaryLabel = "Explore Services",
+  secondaryLabel = "Explore Trading",
   secondaryHref = "/trading",
 }: CTAProps) {
   return (

@@ -81,10 +81,8 @@ export function ContactForm() {
             className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-charcoal-light bg-white dark:bg-charcoal focus:outline-none focus:ring-2 focus:ring-emerald text-sm"
           >
             <option value="trading">Trading Education</option>
-            <option value="website">Website Design</option>
-            <option value="marketing">Digital Marketing</option>
-            <option value="ai">AI Consulting</option>
-            <option value="business">Business Development</option>
+            <option value="mentorship">One-On-One Mentorship</option>
+            <option value="consultation">Free Consultation</option>
             <option value="other">Other</option>
           </select>
         </div>

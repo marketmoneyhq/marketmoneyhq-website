@@ -8,7 +8,7 @@ import { createBreadcrumbSchema, createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "About Us",
   description:
-    "Learn the story behind Market Money HQ — an education company built on the belief that true wealth comes from developing skills, not chasing shortcuts.",
+    "Learn the story behind Market Money HQ — a trading education company built on the belief that lasting results come from developing skills, not chasing shortcuts.",
   path: "/about",
 });
 
@@ -17,22 +17,22 @@ function ValuesSection() {
     {
       title: "Education First",
       description:
-        "We prioritize teaching over selling. Every program is designed to build genuine skills that compound over time.",
+        "We prioritize teaching over selling. Every program is designed to build genuine trading skills that compound over time.",
     },
     {
       title: "Long-Term Thinking",
       description:
-        "Financial freedom is a marathon, not a sprint. We help you develop the patience and discipline for sustainable growth.",
+        "Consistency in the markets is a marathon, not a sprint. We help you develop the patience and discipline for sustainable growth.",
     },
     {
       title: "Honest Approach",
       description:
-        "No hype, no exaggerated claims. We're transparent about risks, realistic about outcomes, and committed to ethical education.",
+        "No hype, no exaggerated claims. We're transparent about risk, realistic about outcomes, and committed to ethical education.",
     },
     {
-      title: "Holistic Growth",
+      title: "Process Over Outcome",
       description:
-        "We go beyond trading to encompass business, technology, and the full digital economy — because freedom requires diverse skills.",
+        "We teach risk management, psychology, and decision-making — because lasting traders are built on process, not luck.",
     },
   ];
 
@@ -46,7 +46,7 @@ function ValuesSection() {
           <h2 className="heading-lg mb-4">What We Stand For</h2>
           <p className="body-lg">
             These principles guide everything we do — from curriculum design to
-            mentorship and client relationships.
+            mentorship and student relationships.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -68,29 +68,27 @@ function StorySection() {
       <div className="container-custom max-w-3xl mx-auto">
         <div className="space-y-6 body-md">
           <p>
-            Market Money HQ was born from a simple observation: most people
-            want financial freedom, but the education available to them is either
-            too simplistic, too hyped, or too narrowly focused on a single skill.
+            Market Money HQ was born from a simple observation: most people want
+            better results in the markets, but the education available to them is
+            either too simplistic, too hyped, or focused on signals instead of
+            skill.
           </p>
           <p>
-            We started with trading education because markets offer a powerful
-            teacher — they reward discipline and punish recklessness in real
-            time. But we quickly realized that trading alone isn&apos;t enough.
-            The people who achieve lasting financial independence combine market
-            skills with business acumen, digital literacy, and the ability to
-            leverage modern technology.
+            We built a trading education company around what actually matters —
+            structured learning, risk management, trading psychology, and live
+            mentorship. Markets are a powerful teacher: they reward discipline and
+            punish recklessness in real time.
           </p>
           <p>
-            Today, Market Money HQ is a comprehensive education and mentorship
-            platform serving thousands of students worldwide. We offer structured
-            programs in trading, business development, website design, digital
-            marketing, and AI consulting — all unified by a single mission: help
-            everyday people build the skills that create freedom.
+            Today, Market Money HQ helps students develop the competence and
+            mindset needed to approach trading with clarity. Our mission is
+            simple: help everyday people build trading skills that create more
+            freedom over time.
           </p>
           <p className="text-charcoal dark:text-white font-medium text-lg">
             We don&apos;t promise overnight wealth. We promise something better:
-            the knowledge and skills to build a life with more freedom,
-            flexibility, and abundance — on your terms.
+            the knowledge and skills to trade with process, discipline, and
+            long-term thinking — on your terms.
           </p>
         </div>
       </div>
@@ -113,15 +111,15 @@ export default function AboutPage() {
       <PageHero
         badge="About Us"
         title="Built On Skills, Not Shortcuts"
-        description="Market Money HQ exists because we believe true wealth comes from developing valuable skills — not from chasing get-rich-quick schemes or following hype."
+        description="Market Money HQ exists because we believe lasting trading results come from developing valuable skills — not from chasing get-rich-quick schemes or following hype."
       />
       <StorySection />
       <ValuesSection />
       <Timeline />
       <Stats />
       <CTA
-        title="Join An Education-First Approach"
-        description="Whether you're starting your journey or looking to expand your skills, we're here to guide you with honesty, expertise, and long-term thinking."
+        title="Start Your Trading Education"
+        description="Whether you're new to markets or looking to sharpen your discipline, we're here to guide you with honesty, structure, and long-term thinking."
       />
     </>
   );

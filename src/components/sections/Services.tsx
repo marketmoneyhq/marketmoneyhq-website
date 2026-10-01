@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import {
-  LineChart,
-  Bot,
-  Briefcase,
+  BookOpen,
+  Shield,
+  Users,
   ArrowRight,
   type LucideIcon,
 } from "lucide-react";
@@ -14,9 +14,9 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 
 const iconMap: Record<string, LucideIcon> = {
-  LineChart,
-  Bot,
-  Briefcase,
+  BookOpen,
+  Shield,
+  Users,
 };
 
 export function Services() {
@@ -25,9 +25,9 @@ export function Services() {
       <div className="container-custom">
         <MotionWrapper className="mb-16">
           <SectionHeader
-            badge="Our Services"
-            title="Practical Solutions For Real Growth"
-            description="From trading mentorship to AI consulting, we provide the education and services you need to build lasting wealth."
+            badge="Our Approach"
+            title="Education Built For Real Traders"
+            description="Structured learning, capital protection, and live mentorship — the foundations of a serious trading education."
           />
         </MotionWrapper>
 
@@ -56,10 +56,10 @@ export function Services() {
 
         <MotionWrapper className="text-center mt-12" delay={0.3}>
           <Link
-            href="/services"
+            href="/trading"
             className="inline-flex items-center gap-2 text-emerald font-medium hover:gap-3 transition-all"
           >
-            View all services
+            Explore trading education
             <ArrowRight className="w-4 h-4" />
           </Link>
         </MotionWrapper>

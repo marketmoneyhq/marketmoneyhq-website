@@ -18,8 +18,8 @@ export function Newsletter() {
                 Insights For Building Wealth
               </h2>
               <p className="text-gray-400 mb-8">
-                Join our newsletter for practical education on trading, business,
-                AI, and the digital economy. No hype, just value.
+                Join our newsletter for practical trading education — risk,
+                psychology, and process. No hype, just value.
               </p>
               <form
                 className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"

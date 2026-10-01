@@ -7,7 +7,7 @@ import { createBreadcrumbSchema, createMetadata, siteConfig } from "@/lib/metada
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
-    "Get in touch with Market Money HQ. Book a free consultation, ask questions, or learn how our education and mentorship programs can help you build financial freedom.",
+    "Get in touch with Market Money HQ. Book a free consultation, ask questions, or learn how our trading education and mentorship can help you build lasting skill.",
   path: "/contact",
   keywords: ["contact Market Money HQ", "book consultation", "trading consultation"],
 });

@@ -43,8 +43,8 @@ export default function OpenGraphImage() {
           Build Skills. Create Wealth. Live with Freedom!
         </div>
         <div style={{ fontSize: 24, color: "#C8CDD5", maxWidth: 800 }}>
-          Education & mentorship for trading, business, AI, and the digital
-          economy
+          Premium trading education & mentorship — risk, psychology, and real
+          skill development
         </div>
       </div>
     ),

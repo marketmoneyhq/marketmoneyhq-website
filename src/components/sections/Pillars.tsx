@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import {
-  TrendingUp,
-  Building2,
-  Sparkles,
+  BookOpen,
+  Shield,
+  Brain,
+  Users,
   ArrowRight,
   type LucideIcon,
 } from "lucide-react";
@@ -13,9 +14,10 @@ import { MotionWrapper, MotionSection, fadeInUp } from "@/lib/animations";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const iconMap: Record<string, LucideIcon> = {
-  TrendingUp,
-  Building2,
-  Sparkles,
+  BookOpen,
+  Shield,
+  Brain,
+  Users,
 };
 
 export function Pillars() {
@@ -24,13 +26,13 @@ export function Pillars() {
       <div className="container-custom">
         <MotionWrapper className="mb-16">
           <SectionHeader
-            badge="Three Pillars"
-            title="Everything Connects To Financial Independence"
-            description="Trading is one pillar. Business is another. AI and digital skills complete the foundation for lasting wealth."
+            badge="Trading Education"
+            title="What We Teach"
+            description="A focused path to trading competence — education, risk, psychology, and mentorship working together."
           />
         </MotionWrapper>
 
-        <MotionSection className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <MotionSection className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {pillars.map((pillar, index) => {
             const Icon = iconMap[pillar.icon];
             return (

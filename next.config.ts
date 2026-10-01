@@ -5,7 +5,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/website-design",
-        destination: "/business-development",
+        destination: "/trading",
+        permanent: true,
+      },
+      {
+        source: "/business-development",
+        destination: "/trading",
+        permanent: true,
+      },
+      {
+        source: "/ai",
+        destination: "/trading",
+        permanent: true,
+      },
+      {
+        source: "/services",
+        destination: "/trading",
         permanent: true,
       },
     ];

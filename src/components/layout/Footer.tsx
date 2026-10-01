@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { siteConfig } from "@/lib/metadata";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 
@@ -11,10 +11,10 @@ const footerLinks = {
     { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ],
-  services: [
+  learn: [
     { name: "Trading Education", href: "/trading" },
-    { name: "Business Development", href: "/business-development" },
-    { name: "AI", href: "/ai" },
+    { name: "Get Started", href: "/trading/purchase" },
+    { name: "Book Consultation", href: siteConfig.calendlyUrl },
   ],
 };
 
@@ -24,15 +24,16 @@ export function Footer() {
       <div className="section-padding pb-12">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-            {/* Brand */}
             <div className="lg:col-span-4">
               <Link href="/" className="flex items-center gap-3 mb-6">
                 <BrandLogo size="md" className="rounded-full" />
-                <span className="font-display font-bold text-lg">Market Money HQ</span>
+                <span className="font-display font-bold text-lg">
+                  Market Money HQ
+                </span>
               </Link>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-sm">
-                {siteConfig.tagline} Premium education and mentorship for the
-                modern digital economy.
+                {siteConfig.tagline} Premium trading education and mentorship
+                focused on real skills, risk management, and discipline.
               </p>
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -43,7 +44,6 @@ export function Footer() {
               </a>
             </div>
 
-            {/* Links */}
             <div className="lg:col-span-2">
               <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400">
                 Company
@@ -64,17 +64,28 @@ export function Footer() {
 
             <div className="lg:col-span-2">
               <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400">
-                Services
+                Learn
               </h3>
               <ul className="space-y-3">
-                {footerLinks.services.map((link) => (
+                {footerLinks.learn.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-white transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-gray-300 hover:text-white transition-colors text-sm"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -85,7 +96,7 @@ export function Footer() {
                 Stay Connected
               </h3>
               <p className="text-gray-400 text-sm mb-4">
-                Get insights on trading, business, and AI delivered to your inbox.
+                Get trading education insights delivered to your inbox.
               </p>
               <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
                 <input
@@ -103,31 +114,17 @@ export function Footer() {
               </form>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} Market Money HQ. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              {Object.entries(siteConfig.social).map(([platform, url]) => (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-sm capitalize flex items-center gap-1"
-                >
-                  {platform}
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <p className="mt-8 text-xs text-gray-600 text-center max-w-3xl mx-auto">
-            Trading involves substantial risk and is not suitable for all investors.
-            Past performance is not indicative of future results. No profits are guaranteed.
-            Market Money HQ provides education and mentorship — not financial advice.
+      <div className="border-t border-white/10">
+        <div className="container-custom py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <p>
+            © {new Date().getFullYear()} Market Money HQ. All rights reserved.
+          </p>
+          <p className="text-xs text-center sm:text-right max-w-md">
+            Trading involves substantial risk of loss. Education only — no
+            profits are guaranteed.
           </p>
         </div>
       </div>

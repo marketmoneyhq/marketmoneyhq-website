@@ -8,12 +8,12 @@ import { createBreadcrumbSchema, createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Resources",
   description:
-    "Free educational resources on trading, business development, AI, and building financial freedom. Practical guides for the modern digital economy.",
+    "Free educational resources on trading, risk management, psychology, and building lasting skill in the markets.",
   path: "/resources",
   keywords: [
     "trading resources",
     "financial education guides",
-    "business development resources",
+    "risk management guides",
   ],
 });
 
@@ -32,15 +32,15 @@ export default function ResourcesPage() {
       <PageHero
         badge="Resources"
         title="Knowledge That Compounds"
-        description="Practical guides, tutorials, and insights on trading, business, AI, and the mindset for building lasting wealth. Education you can apply today."
+        description="Practical guides and insights on trading, risk management, psychology, and the mindset for building lasting skill. Education you can apply today."
       />
       <ResourceGrid />
       <Newsletter />
       <CTA
         title="Want Personalized Guidance?"
-        description="Our resources are a great starting point. For tailored mentorship and hands-on support, book a consultation with our team."
+        description="Our resources are a great starting point. For tailored trading mentorship and hands-on support, book a consultation with our team."
         primaryLabel="Book a Consultation"
-        secondaryLabel="Explore Services"
+        secondaryLabel="Explore Trading"
         secondaryHref="/trading"
       />
     </>

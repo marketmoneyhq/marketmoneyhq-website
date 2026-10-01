@@ -24,7 +24,7 @@ export function ResourceGrid() {
           <SectionHeader
             badge="Resources"
             title="Learn At Your Own Pace"
-            description="Practical guides on trading, business, AI, and the mindset for building lasting wealth."
+            description="Practical guides on trading, risk management, psychology, and the mindset for building lasting skill."
           />
         </MotionWrapper>
 
