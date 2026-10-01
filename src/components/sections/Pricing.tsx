@@ -13,6 +13,16 @@ const iconMap = {
   mentorship: Users,
 } as const;
 
+function resolvePlanHref(ctaHref: string) {
+  if (ctaHref === "mentorship") {
+    return siteConfig.stripeMentorshipUrl || "/contact";
+  }
+  if (ctaHref === "calendly") {
+    return siteConfig.calendlyUrl;
+  }
+  return ctaHref;
+}
+
 export function Pricing() {
   return (
     <section id="pricing" className="section-padding bg-white dark:bg-charcoal-dark">
@@ -21,17 +31,14 @@ export function Pricing() {
           <SectionHeader
             badge="Pricing"
             title="Choose How You Want To Learn"
-            description="Start with a self-paced PDF, or choose In-Person / Online mentorship for one-on-one teaching with Stefan — wherever you are."
+            description="Start with a self-paced PDF, or choose In-Person / Online mentorship for one-on-one teaching with Market Money HQ — wherever you are."
           />
         </MotionWrapper>
 
         <MotionSection className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2 lg:gap-8">
           {pricingPlans.map((plan, index) => {
             const Icon = iconMap[plan.id];
-            const href =
-              plan.ctaHref === "calendly"
-                ? siteConfig.calendlyUrl
-                : plan.ctaHref;
+            const href = resolvePlanHref(plan.ctaHref);
 
             return (
               <MotionWrapper
@@ -99,13 +106,22 @@ export function Pricing() {
           })}
         </MotionSection>
 
+        <MotionWrapper className="mx-auto mt-12 max-w-xl text-center" delay={0.15}>
+          <p className="mb-4 font-display text-xl font-bold tracking-tight md:text-2xl">
+            Still Unsure What To Choose?
+          </p>
+          <Button href={siteConfig.calendlyUrl} size="lg" variant="outline">
+            Book a Consultation
+          </Button>
+        </MotionWrapper>
+
         <MotionWrapper className="mx-auto mt-10 max-w-2xl text-center" delay={0.2}>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             Trading involves substantial risk of loss. Education only — no
             profits are guaranteed. Trading is taught as a supplemental skill,
             not a promise to replace your income. The PDF is self-paced;
-            In-Person / Online includes direct access to Stefan for questions
-            and guidance.
+            In-Person / Online includes direct access to Market Money HQ for
+            questions and guidance.
           </p>
         </MotionWrapper>
       </div>

@@ -15,7 +15,7 @@ const footerLinks = {
   learn: [
     { name: "Trading Education", href: "/trading" },
     { name: "Pricing", href: "/trading#pricing" },
-    { name: "Book Consultation", href: siteConfig.calendlyUrl },
+    { name: "Book a Consultation", href: siteConfig.calendlyUrl },
   ],
 };
 

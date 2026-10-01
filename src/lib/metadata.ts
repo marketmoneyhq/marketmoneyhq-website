@@ -26,6 +26,8 @@ export const siteConfig = {
   email: "marketmoneyhq@gmail.com",
   calendlyUrl: "https://calendly.com/marketmoneyhq",
   stripePaymentUrl: "https://buy.stripe.com/eVq8wRaX9aSKa7CeFy6c002",
+  /** Stripe Payment Link for In-Person / Online mentorship ($5,000). Add when ready. */
+  stripeMentorshipUrl: "",
   tradingAgreementPath: "/agreements/trading-disclosure.pdf",
   social: {
     instagram: "https://www.instagram.com/MarketMoneyHQ",

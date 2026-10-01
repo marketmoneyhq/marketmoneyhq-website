@@ -23,7 +23,7 @@ import {
 export const metadata: Metadata = createMetadata({
   title: "Trading Education",
   description:
-    "Learn trading as a supplemental stream of income through structured education, risk management, psychology, and mentorship. Choose a self-paced PDF or In-Person / Online teaching with Stefan.",
+    "Learn trading as a supplemental stream of income through structured education, risk management, psychology, and mentorship. Choose a self-paced PDF or In-Person / Online teaching with Market Money HQ.",
   path: "/trading",
   keywords: [
     "trading course",
@@ -77,7 +77,7 @@ export default function TradingPage() {
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Self-paced PDF for $250, or In-Person / Online mentorship with
-                Stefan for $5,000.
+                Market Money HQ for $5,000.
               </p>
             </div>
             <Button href="#pricing" size="lg">
@@ -206,7 +206,7 @@ export default function TradingPage() {
 
       <CTA
         title="Ready To Build A Supplemental Trading Skill?"
-        description="Start with the self-paced PDF, choose In-Person / Online mentorship with Stefan, or book a free consultation to talk through fit first."
+        description="Start with the self-paced PDF, choose In-Person / Online mentorship with Market Money HQ, or book a consultation if you are still deciding."
         primaryLabel="View Pricing"
         primaryHref="#pricing"
         secondaryLabel="Book a Consultation"

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { siteConfig } from "@/lib/metadata";
 import { HeroPhoneChart } from "@/components/sections/HeroPhoneChart";
 import { useIntroReveal } from "@/components/providers/IntroReveal";
 import { MaskReveal, revealEase } from "@/lib/animations";
@@ -88,8 +87,8 @@ export function Hero() {
               }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <Button href={siteConfig.calendlyUrl} size="lg">
-                Book a Consultation
+              <Button href="/trading#pricing" size="lg">
+                Mentor Me
                 <ArrowRight className="w-4 h-4" />
               </Button>
               <Button

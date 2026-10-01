@@ -11,12 +11,12 @@ import {
 export const metadata: Metadata = createMetadata({
   title: "Reviews",
   description:
-    "Read student reviews of Market Money HQ trading education and mentorship with Stefan — real feedback on learning, discipline, and supplemental trading skills.",
+    "Read student reviews of Market Money HQ trading education and mentorship — real feedback on learning, discipline, and supplemental trading skills.",
   path: "/reviews",
   keywords: [
     "Market Money HQ reviews",
     "trading mentorship reviews",
-    "Stefan trading reviews",
+    "trading education reviews",
   ],
 });
 
@@ -35,12 +35,12 @@ export default function ReviewsPage() {
       <PageHero
         badge="Reviews"
         title="What Students Are Saying"
-        description="Honest feedback from people who learned trading skills with Stefan — focused on education, discipline, and building a supplemental stream of income."
+        description="Honest feedback from people who learned trading skills with Market Money HQ — focused on education, discipline, and building a supplemental stream of income."
       />
       <Testimonials />
       <CTA
         title="Ready To Start Learning?"
-        description="Browse pricing for the self-paced PDF or In-Person / Online mentorship, or book a free consultation first."
+        description="Browse pricing for the self-paced PDF or In-Person / Online mentorship, or book a consultation if you are still deciding."
         primaryLabel="View Pricing"
         primaryHref="/trading#pricing"
         secondaryLabel="Book a Consultation"

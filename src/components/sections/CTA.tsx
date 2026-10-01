@@ -16,7 +16,7 @@ interface CTAProps {
 
 export function CTA({
   title = "Ready To Build A Supplemental Trading Skill?",
-  description = "Start with the self-paced PDF, choose In-Person / Online mentorship with Stefan, or book a free consultation to talk through fit first.",
+  description = "Start with the self-paced PDF, choose In-Person / Online mentorship with Market Money HQ, or book a consultation if you are still deciding.",
   primaryLabel = "View Pricing",
   primaryHref = "/trading#pricing",
   secondaryLabel = "Book a Consultation",

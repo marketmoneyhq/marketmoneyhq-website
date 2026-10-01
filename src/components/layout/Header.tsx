@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/lib/constants";
-import { siteConfig } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
@@ -79,11 +78,11 @@ export function Header() {
               className={lightNav ? "text-white hover:bg-white/10" : undefined}
             />
             <Button
-              href={siteConfig.calendlyUrl}
+              href="/trading#pricing"
               size="sm"
               className="hidden sm:inline-flex"
             >
-              Book Consultation
+              Mentor Me
             </Button>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -123,8 +122,8 @@ export function Header() {
                 </Link>
               ))}
               <div className="pt-4 px-4">
-                <Button href={siteConfig.calendlyUrl} className="w-full">
-                  Book Consultation
+                <Button href="/trading#pricing" className="w-full">
+                  Mentor Me
                 </Button>
               </div>
             </div>
