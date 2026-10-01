@@ -8,12 +8,13 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 const footerLinks = {
   company: [
     { name: "About", href: "/about" },
+    { name: "Reviews", href: "/reviews" },
     { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ],
   learn: [
     { name: "Trading Education", href: "/trading" },
-    { name: "Get Started", href: "/trading/purchase" },
+    { name: "Pricing", href: "/trading#pricing" },
     { name: "Book Consultation", href: siteConfig.calendlyUrl },
   ],
 };

@@ -12,7 +12,7 @@ export function Timeline() {
           <SectionHeader
             badge="Our Journey"
             title="Built On Experience, Driven By Purpose"
-            description="From trading education to a comprehensive platform for financial independence."
+            description="From the first lesson to lasting mentorship — built around skill, discipline, and supplemental trading education."
           />
         </MotionWrapper>
 

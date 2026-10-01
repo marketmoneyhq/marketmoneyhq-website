@@ -82,13 +82,14 @@ function StorySection() {
           <p>
             Today, Market Money HQ helps students develop the competence and
             mindset needed to approach trading with clarity. Our mission is
-            simple: help everyday people build trading skills that create more
-            freedom over time.
+            simple: help everyday people build trading as a supplemental stream
+            of income — with real skills, not hype.
           </p>
           <p className="text-charcoal dark:text-white font-medium text-lg">
-            We don&apos;t promise overnight wealth. We promise something better:
-            the knowledge and skills to trade with process, discipline, and
-            long-term thinking — on your terms.
+            We don&apos;t promise overnight wealth or that trading will replace
+            your job. We promise something better: the knowledge and skills to
+            trade with process, discipline, and long-term thinking — on your
+            terms.
           </p>
         </div>
       </div>

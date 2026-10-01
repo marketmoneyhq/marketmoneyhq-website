@@ -72,8 +72,8 @@ export function Hero() {
               className="text-lg md:text-xl text-silver max-w-xl leading-relaxed mb-10"
             >
               Premium trading education and mentorship — helping everyday people
-              build financial independence through real skills, risk management,
-              and discipline, not shortcuts.
+              build trading as a supplemental stream of income through real
+              skills, risk management, and discipline, not shortcuts.
             </motion.p>
 
             <motion.div

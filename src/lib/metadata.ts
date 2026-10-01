@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const siteUrl = "https://www.marketmoneyhq.com";
 const siteName = "Market Money HQ";
 const defaultDescription =
-  "Build skills. Create wealth. Live with freedom. Premium trading education and mentorship focused on risk management, psychology, and real skill development.";
+  "Build skills. Create wealth. Live with freedom. Premium trading education and mentorship focused on risk management, psychology, and building trading as a supplemental stream of income.";
 
 const defaultKeywords = [
   "Market Money HQ",

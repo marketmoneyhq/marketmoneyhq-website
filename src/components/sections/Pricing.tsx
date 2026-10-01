@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const iconMap = {
-  "in-person": Users,
   pdf: FileText,
+  mentorship: Users,
 } as const;
 
 export function Pricing() {
@@ -21,7 +21,7 @@ export function Pricing() {
           <SectionHeader
             badge="Pricing"
             title="Choose How You Want To Learn"
-            description="In-person mentorship for a personal one-on-one experience, or a self-paced PDF if you want Stefan's knowledge to study on your own."
+            description="Start with a self-paced PDF, or choose In-Person / Online mentorship for one-on-one teaching with Stefan — wherever you are."
           />
         </MotionWrapper>
 
@@ -102,8 +102,10 @@ export function Pricing() {
         <MotionWrapper className="mx-auto mt-10 max-w-2xl text-center" delay={0.2}>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             Trading involves substantial risk of loss. Education only — no
-            profits are guaranteed. The PDF is a self-paced knowledge product;
-            In-Person includes direct access to Stefan for questions and guidance.
+            profits are guaranteed. Trading is taught as a supplemental skill,
+            not a promise to replace your income. The PDF is self-paced;
+            In-Person / Online includes direct access to Stefan for questions
+            and guidance.
           </p>
         </MotionWrapper>
       </div>

@@ -44,9 +44,9 @@ export function Testimonials() {
       <div className="container-custom">
         <MotionWrapper className="mb-12 md:mb-16">
           <SectionHeader
-            badge="Testimonials"
-            title="Trusted By Learners Worldwide"
-            description="Real stories from students who chose mentorship, consistency, and long-term skill development."
+            badge="Reviews"
+            title="What Students Are Saying"
+            description="Real stories from people who chose education, consistency, and trading as a supplemental skill — not a shortcut."
           />
         </MotionWrapper>
 

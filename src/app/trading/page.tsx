@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { Pricing } from "@/components/sections/Pricing";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -24,7 +23,7 @@ import {
 export const metadata: Metadata = createMetadata({
   title: "Trading Education",
   description:
-    "Learn trading with discipline through structured education, risk management, trading psychology, and live mentorship. Choose in-person mentorship or a self-paced PDF.",
+    "Learn trading as a supplemental stream of income through structured education, risk management, psychology, and mentorship. Choose a self-paced PDF or In-Person / Online teaching with Stefan.",
   path: "/trading",
   keywords: [
     "trading course",
@@ -44,7 +43,7 @@ const iconMap: Record<string, LucideIcon> = {
 export default function TradingPage() {
   const serviceSchema = createServiceSchema(
     "Trading Education & Mentorship",
-    "Structured trading education with emphasis on risk management, psychology, and long-term skill development.",
+    "Structured trading education focused on risk management, psychology, and building trading as a supplemental stream of income.",
     "https://www.marketmoneyhq.com/trading"
   );
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -66,7 +65,7 @@ export default function TradingPage() {
       <PageHero
         badge="Trading Education"
         title="Learn To Trade With Discipline, Not Desperation"
-        description="Our trading program focuses on education, risk management, and psychology — building the foundation for informed decisions in any market condition."
+        description="Build trading skills as a supplemental stream of income — with education, risk management, and psychology first. Not a promise to quit your job overnight."
       />
 
       <section className="pb-4">
@@ -77,8 +76,8 @@ export default function TradingPage() {
                 Two Ways To Learn
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                In-Person mentorship with Stefan for $5,000, or a self-paced PDF
-                guide for $250.
+                Self-paced PDF for $250, or In-Person / Online mentorship with
+                Stefan for $5,000.
               </p>
             </div>
             <Button href="#pricing" size="lg">
@@ -101,7 +100,9 @@ export default function TradingPage() {
                 all investors. Past performance is not indicative of future
                 results. No profits are guaranteed. Market Money HQ provides
                 education and mentorship — not financial advice. Only trade with
-                capital you can afford to lose.
+                capital you can afford to lose. We teach trading as a
+                supplemental skill — not as a guaranteed replacement for your
+                primary income.
               </p>
             </div>
           </div>
@@ -118,9 +119,10 @@ export default function TradingPage() {
               Education That Builds Real Traders
             </h2>
             <p className="body-lg">
-              We don&apos;t teach you to chase profits. We teach you to manage
-              risk, control emotions, and make informed decisions — the skills
-              that separate professionals from gamblers.
+              We don&apos;t teach you to chase profits or treat trading like a
+              get-rich-quick career swap. We teach you to manage risk, control
+              emotions, and make informed decisions — skills that support a
+              supplemental stream of income over time.
             </p>
           </div>
 
@@ -178,8 +180,9 @@ export default function TradingPage() {
               },
               {
                 phase: "Phase 4",
-                title: "Advanced & Live Trading",
-                topics: "Advanced strategies, live mentorship, trade reviews",
+                title: "Advanced Application",
+                topics:
+                  "Advanced strategies, mentorship support, trade reviews",
               },
             ].map((phase) => (
               <div
@@ -201,11 +204,9 @@ export default function TradingPage() {
         </div>
       </section>
 
-      <Testimonials />
-
       <CTA
-        title="Ready To Learn Trading The Right Way?"
-        description="Choose In-Person mentorship with Stefan, start with the self-paced PDF, or book a free consultation to talk through fit first."
+        title="Ready To Build A Supplemental Trading Skill?"
+        description="Start with the self-paced PDF, choose In-Person / Online mentorship with Stefan, or book a free consultation to talk through fit first."
         primaryLabel="View Pricing"
         primaryHref="#pricing"
         secondaryLabel="Book a Consultation"

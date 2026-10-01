@@ -11,7 +11,7 @@ export function Mission() {
           <MotionWrapper variants={fadeInUp}>
             <SectionHeader
               badge="Our Mission"
-              title="Trading Skills That Create Freedom, Not Shortcuts"
+              title="Trading Skills As A Supplemental Advantage"
               align="left"
             />
           </MotionWrapper>
@@ -24,19 +24,20 @@ export function Mission() {
                 with clarity — not hype.
               </p>
               <p>
-                We believe financial freedom becomes more possible when you learn
-                how markets work, how to manage risk, and how to make decisions
-                based on process instead of emotion.
+                We believe trading works best as a supplemental stream of income
+                — something you build alongside your life and work, with risk
+                management and process first. This is not about promising that
+                trading will replace your job overnight.
               </p>
               <p>
                 Our focus is trading education: structured curriculum, risk
-                management, trading psychology, and live mentorship. We teach you
-                how to think — not just what to trade.
+                management, trading psychology, and mentorship. We teach you how
+                to think — not just what to trade.
               </p>
               <p className="text-charcoal dark:text-white font-medium">
                 This isn&apos;t about getting rich overnight. It&apos;s about
                 building real trading skills, making smarter decisions, and
-                creating a foundation for greater freedom over time.
+                creating an extra layer of opportunity over time.
               </p>
             </div>
           </MotionWrapper>

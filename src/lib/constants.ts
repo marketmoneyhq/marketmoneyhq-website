@@ -2,6 +2,7 @@ export const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Trading", href: "/trading" },
+  { name: "Reviews", href: "/reviews" },
   { name: "Resources", href: "/resources" },
   { name: "Contact", href: "/contact" },
 ] as const;
@@ -228,22 +229,22 @@ export const faqs = [
   {
     question: "Who Is Market Money HQ For?",
     answer:
-      "Our trading programs are designed for people aged 18 and up who want to learn markets the right way. Whether you are brand new or looking to sharpen your discipline, if you value education over hype, you are in the right place.",
+      "Our trading programs are designed for people aged 18 and up who want to build trading as a supplemental stream of income. Whether you are brand new or looking to sharpen your discipline, if you value education over hype, you are in the right place.",
   },
   {
     question: "What Makes You Different From Other Trading Educators?",
     answer:
-      "We teach people how to think, not just what to click. Our focus is structured education, risk management, trading psychology, and live mentorship — building skills that last instead of selling signals or overnight promises.",
+      "We teach people how to think, not just what to click — and we frame trading as a supplemental skill, not a promise to quit your job overnight. Our focus is structured education, risk management, trading psychology, and mentorship that builds lasting competence.",
   },
   {
     question: "How Do I Get Started?",
     answer:
-      "Book a free consultation to discuss your goals and find the right trading education path for you. We will help you understand your options based on where you are today and where you want to be.",
+      "Choose the self-paced PDF, book a consultation for In-Person / Online mentorship, or reach out through Contact. We will help you understand your options based on where you are today.",
   },
   {
     question: "Do You Offer One-On-One Mentorship?",
     answer:
-      "Yes. We offer personalized trading mentorship with customized learning plans aligned to your experience level, goals, and pace.",
+      "Yes. Mentorship can be in-person and/or online, depending on location and schedule. Learning plans are customized to your experience level, goals, and pace — with the ability to ask questions and reach out as needed.",
   },
 ] as const;
 
@@ -262,9 +263,9 @@ export const timeline = [
   },
   {
     year: "Mission",
-    title: "Skills That Create Freedom",
+    title: "Skills That Add Opportunity",
     description:
-      "Today, we help students develop the discipline and decision-making skills needed to approach markets with clarity and confidence.",
+      "Today, we help students develop the discipline and decision-making skills needed to approach markets with clarity — as a supplemental stream of income, not a guaranteed career replacement.",
   },
   {
     year: "Vision",
@@ -350,27 +351,6 @@ export const resourceCategories = ["All", "Trading", "Mindset"] as const;
 
 export const pricingPlans = [
   {
-    id: "in-person",
-    name: "In-Person",
-    price: 5000,
-    priceLabel: "$5,000",
-    badge: "Most Personal",
-    summary:
-      "One-on-one teaching with Stefan — ask questions, get guidance, and reach out as you need it.",
-    description:
-      "Best if you want a personal mentorship experience. You learn directly with Stefan, get answers in real time, and have access to reach out when you need clarity along the way.",
-    features: [
-      "One-on-one teaching with Stefan",
-      "Ask questions as you learn",
-      "Reach out for guidance when needed",
-      "Personal feedback and accountability",
-      "A more hands-on, personal experience",
-    ],
-    ctaLabel: "Book a Consultation",
-    ctaHref: "calendly",
-    highlighted: true,
-  },
-  {
     id: "pdf",
     name: "PDF Guide",
     price: 250,
@@ -379,7 +359,7 @@ export const pricingPlans = [
     summary:
       "Stefan's trading strategies and teaching breakdown — learn on your own, at your own pace.",
     description:
-      "Ideal if you want the knowledge without one-on-one mentorship right now. Get the strategies and breakdown of what Stefan teaches in a self-paced PDF format.",
+      "Ideal if you want the knowledge without one-on-one mentorship right now. Get the strategies and breakdown of what Stefan teaches in a self-paced PDF format — a strong way to start building supplemental trading skills.",
     features: [
       "Full strategy breakdown from Stefan's teaching",
       "Learn on your own schedule",
@@ -390,5 +370,26 @@ export const pricingPlans = [
     ctaLabel: "Purchase PDF",
     ctaHref: "/trading/purchase",
     highlighted: false,
+  },
+  {
+    id: "mentorship",
+    name: "In-Person / Online",
+    price: 5000,
+    priceLabel: "$5,000",
+    badge: "Most Personal",
+    summary:
+      "One-on-one teaching with Stefan — in person when possible, or online when you are out of state or prefer remote learning.",
+    description:
+      "Best if you want a personal mentorship experience. Learn directly with Stefan, ask questions in real time, and reach out when you need clarity. Sessions can be in-person and/or online depending on location and schedule.",
+    features: [
+      "One-on-one teaching with Stefan",
+      "In-person and/or online sessions",
+      "Ask questions as you learn",
+      "Reach out for guidance when needed",
+      "Personal feedback and accountability",
+    ],
+    ctaLabel: "Book a Consultation",
+    ctaHref: "calendly",
+    highlighted: true,
   },
 ] as const;
