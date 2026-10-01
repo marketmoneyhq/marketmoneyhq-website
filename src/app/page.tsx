@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Mission } from "@/components/sections/Mission";
 import { Pillars } from "@/components/sections/Pillars";
 import { Services } from "@/components/sections/Services";
+import { Pricing } from "@/components/sections/Pricing";
 import { Stats } from "@/components/sections/Stats";
 import { FAQ } from "@/components/sections/FAQ";
 import { Newsletter } from "@/components/sections/Newsletter";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Mission />
       <Pillars />
       <Services />
+      <Pricing />
       <Stats />
       <FAQ />
       <Newsletter />

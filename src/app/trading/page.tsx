@@ -5,10 +5,10 @@ import {
   Brain,
   Users,
   AlertTriangle,
-  ShoppingCart,
   type LucideIcon,
 } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
+import { Pricing } from "@/components/sections/Pricing";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
 import { Card } from "@/components/ui/Card";
@@ -24,7 +24,7 @@ import {
 export const metadata: Metadata = createMetadata({
   title: "Trading Education",
   description:
-    "Learn trading with discipline through structured education, risk management, trading psychology, and live mentorship. No hype — just real skills.",
+    "Learn trading with discipline through structured education, risk management, trading psychology, and live mentorship. Choose in-person mentorship or a self-paced PDF.",
   path: "/trading",
   keywords: [
     "trading course",
@@ -74,22 +74,20 @@ export default function TradingPage() {
           <div className="flex flex-col items-start justify-between gap-4 rounded-3xl border border-[#0088ff]/20 bg-[#0088ff]/5 p-6 sm:flex-row sm:items-center">
             <div>
               <p className="font-display text-xl font-bold mb-1">
-                Ready To Enroll?
+                Two Ways To Learn
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Sign the Trading Disclosure Form, then complete your one-time
-                payment securely with Stripe.
+                In-Person mentorship with Stefan for $5,000, or a self-paced PDF
+                guide for $250.
               </p>
             </div>
-            <Button href="/trading/purchase" size="lg">
-              <ShoppingCart className="h-4 w-4" />
-              Purchase
+            <Button href="#pricing" size="lg">
+              View Pricing
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Risk Disclaimer */}
       <section className="py-8 bg-amber-50 dark:bg-amber-950/20 border-y border-amber-200 dark:border-amber-900/30">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4 max-w-3xl mx-auto">
@@ -99,18 +97,17 @@ export default function TradingPage() {
                 Important Risk Disclosure
               </p>
               <p className="text-sm text-amber-700 dark:text-amber-500/80">
-                Trading involves substantial risk of loss and is not suitable for all
-                investors. Past performance is not indicative of future results. No
-                profits are guaranteed. Market Money HQ provides education and
-                mentorship — not financial advice. Only trade with capital you can
-                afford to lose.
+                Trading involves substantial risk of loss and is not suitable for
+                all investors. Past performance is not indicative of future
+                results. No profits are guaranteed. Market Money HQ provides
+                education and mentorship — not financial advice. Only trade with
+                capital you can afford to lose.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -121,9 +118,9 @@ export default function TradingPage() {
               Education That Builds Real Traders
             </h2>
             <p className="body-lg">
-              We don&apos;t teach you to chase profits. We teach you to manage risk,
-              control emotions, and make informed decisions — the skills that
-              separate professionals from gamblers.
+              We don&apos;t teach you to chase profits. We teach you to manage
+              risk, control emotions, and make informed decisions — the skills
+              that separate professionals from gamblers.
             </p>
           </div>
 
@@ -144,8 +141,9 @@ export default function TradingPage() {
         </div>
       </section>
 
-      {/* Curriculum Overview */}
-      <section className="section-padding bg-white dark:bg-charcoal-dark">
+      <Pricing />
+
+      <section className="section-padding">
         <div className="container-custom max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-emerald font-medium text-sm tracking-wide uppercase mb-4">
@@ -163,17 +161,20 @@ export default function TradingPage() {
               {
                 phase: "Phase 1",
                 title: "Foundations",
-                topics: "Market basics, chart reading, order types, platform setup",
+                topics:
+                  "Market basics, chart reading, order types, platform setup",
               },
               {
                 phase: "Phase 2",
                 title: "Strategy & Analysis",
-                topics: "Technical analysis, market structure, trade setups, journaling",
+                topics:
+                  "Technical analysis, market structure, trade setups, journaling",
               },
               {
                 phase: "Phase 3",
                 title: "Risk & Psychology",
-                topics: "Position sizing, risk-reward, emotional control, discipline",
+                topics:
+                  "Position sizing, risk-reward, emotional control, discipline",
               },
               {
                 phase: "Phase 4",
@@ -204,9 +205,9 @@ export default function TradingPage() {
 
       <CTA
         title="Ready To Learn Trading The Right Way?"
-        description="Purchase Trading Education after signing the disclosure, or book a free consultation to discuss fit first."
-        primaryLabel="Purchase Trading Education"
-        primaryHref="/trading/purchase"
+        description="Choose In-Person mentorship with Stefan, start with the self-paced PDF, or book a free consultation to talk through fit first."
+        primaryLabel="View Pricing"
+        primaryHref="#pricing"
         secondaryLabel="Book a Consultation"
         secondaryHref={siteConfig.calendlyUrl}
       />

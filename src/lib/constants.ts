@@ -347,3 +347,48 @@ export const resources = [
 ] as const;
 
 export const resourceCategories = ["All", "Trading", "Mindset"] as const;
+
+export const pricingPlans = [
+  {
+    id: "in-person",
+    name: "In-Person",
+    price: 5000,
+    priceLabel: "$5,000",
+    badge: "Most Personal",
+    summary:
+      "One-on-one teaching with Stefan — ask questions, get guidance, and reach out as you need it.",
+    description:
+      "Best if you want a personal mentorship experience. You learn directly with Stefan, get answers in real time, and have access to reach out when you need clarity along the way.",
+    features: [
+      "One-on-one teaching with Stefan",
+      "Ask questions as you learn",
+      "Reach out for guidance when needed",
+      "Personal feedback and accountability",
+      "A more hands-on, personal experience",
+    ],
+    ctaLabel: "Book a Consultation",
+    ctaHref: "calendly",
+    highlighted: true,
+  },
+  {
+    id: "pdf",
+    name: "PDF Guide",
+    price: 250,
+    priceLabel: "$250",
+    badge: "Self-Paced",
+    summary:
+      "Stefan's trading strategies and teaching breakdown — learn on your own, at your own pace.",
+    description:
+      "Ideal if you want the knowledge without one-on-one mentorship right now. Get the strategies and breakdown of what Stefan teaches in a self-paced PDF format.",
+    features: [
+      "Full strategy breakdown from Stefan's teaching",
+      "Learn on your own schedule",
+      "Same core knowledge without live sessions",
+      "One-time purchase",
+      "Great starting point before mentorship",
+    ],
+    ctaLabel: "Purchase PDF",
+    ctaHref: "/trading/purchase",
+    highlighted: false,
+  },
+] as const;
