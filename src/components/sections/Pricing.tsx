@@ -6,7 +6,6 @@ import { siteConfig } from "@/lib/metadata";
 import { MotionWrapper, MotionSection, fadeInUp } from "@/lib/animations";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
 
 const iconMap = {
   pdf: FileText,
@@ -46,12 +45,7 @@ export function Pricing() {
                 variants={fadeInUp}
                 delay={index * 0.1}
               >
-                <div
-                  className={cn(
-                    "group relative flex h-full flex-col glass-card glass-card-glow p-6 md:p-8",
-                    plan.highlighted && "border-[#0088ff]/40 bg-[#0088ff]/5"
-                  )}
-                >
+                <div className="group relative flex h-full flex-col glass-card glass-card-glow p-6 md:p-8">
                   <div className="mb-6 flex items-start justify-between gap-4">
                     <div>
                       <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-emerald">
