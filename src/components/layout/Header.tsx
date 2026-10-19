@@ -82,7 +82,7 @@ export function Header() {
               size="sm"
               className="hidden sm:inline-flex"
             >
-              Mentor Me
+              Mentorship
             </Button>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -123,7 +123,7 @@ export function Header() {
               ))}
               <div className="pt-4 px-4">
                 <Button href="/trading#pricing" className="w-full">
-                  Mentor Me
+                  Mentorship
                 </Button>
               </div>
             </div>
