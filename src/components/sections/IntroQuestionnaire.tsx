@@ -4,10 +4,11 @@ import { useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle, Loader2 } from "lucide-react";
-import { useIntroReveal } from "@/components/providers/IntroReveal";
+import {
+  QUESTIONNAIRE_STORAGE_KEY,
+  useIntroReveal,
+} from "@/components/providers/IntroReveal";
 import { Button } from "@/components/ui/Button";
-
-const STORAGE_KEY = "mmhq-questionnaire-done";
 
 const fieldClass =
   "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0088ff] dark:border-white/15 dark:bg-charcoal";
@@ -34,7 +35,7 @@ const emptyForm: FormState = {
 
 function alreadyCompleted() {
   try {
-    return sessionStorage.getItem(STORAGE_KEY) === "1";
+    return sessionStorage.getItem(QUESTIONNAIRE_STORAGE_KEY) === "1";
   } catch {
     return false;
   }
@@ -43,7 +44,7 @@ function alreadyCompleted() {
 export function IntroQuestionnaire() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const { revealed } = useIntroReveal();
+  const { revealed, siteUnlocked, unlockSite } = useIntroReveal();
   const titleId = useId();
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<FormState>(emptyForm);
@@ -52,17 +53,17 @@ export function IntroQuestionnaire() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (alreadyCompleted()) return;
+    if (siteUnlocked || alreadyCompleted()) return;
 
     // Home: wait for curtains to finish opening first
     if (isHome && !revealed) return;
 
-    const timer = window.setTimeout(() => setOpen(true), isHome ? 280 : 0);
+    const timer = window.setTimeout(() => setOpen(true), isHome ? 200 : 0);
     return () => window.clearTimeout(timer);
-  }, [isHome, revealed]);
+  }, [isHome, revealed, siteUnlocked]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || submitted) return;
 
     const html = document.documentElement;
     const prevHtmlOverflow = html.style.overflow;
@@ -71,7 +72,6 @@ export function IntroQuestionnaire() {
     document.body.style.overflow = "hidden";
     html.classList.add("mmhq-intro-lock");
 
-    // Block Escape / backdoor keyboard dismiss
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.preventDefault();
@@ -86,15 +86,7 @@ export function IntroQuestionnaire() {
       html.classList.remove("mmhq-intro-lock");
       window.removeEventListener("keydown", onKey, true);
     };
-  }, [open]);
-
-  function markDone() {
-    try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      // ignore
-    }
-  }
+  }, [open, submitted]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -119,8 +111,11 @@ export function IntroQuestionnaire() {
       }
 
       setSubmitted(true);
-      markDone();
-      window.setTimeout(() => setOpen(false), 1600);
+      // Unlock and mount the site only after a successful submit
+      window.setTimeout(() => {
+        unlockSite();
+        setOpen(false);
+      }, 1200);
     } catch {
       setError("Unable to submit right now. Please try again.");
     } finally {
@@ -132,17 +127,12 @@ export function IntroQuestionnaire() {
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 z-[220] flex items-end justify-center p-3 sm:items-center sm:p-6"
+          className="fixed inset-0 z-[220] flex items-end justify-center bg-black p-3 sm:items-center sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
         >
-          <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            aria-hidden
-          />
-
           <motion.div
             role="dialog"
             aria-modal="true"
@@ -160,7 +150,7 @@ export function IntroQuestionnaire() {
                   Thank you
                 </h2>
                 <p className="mt-2 max-w-sm text-sm text-gray-400">
-                  Your answers were sent. We&apos;ll be in touch soon.
+                  Loading the site…
                 </p>
               </div>
             ) : (

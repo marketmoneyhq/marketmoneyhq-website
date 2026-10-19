@@ -9,18 +9,32 @@ import {
   useState,
 } from "react";
 
+export const QUESTIONNAIRE_STORAGE_KEY = "mmhq-questionnaire-done";
+
 type IntroRevealContextValue = {
   revealed: boolean;
   reveal: () => void;
+  siteUnlocked: boolean;
+  unlockSite: () => void;
 };
 
 const IntroRevealContext = createContext<IntroRevealContextValue>({
   revealed: false,
   reveal: () => {},
+  siteUnlocked: false,
+  unlockSite: () => {},
 });
 
 export function useIntroReveal() {
   return useContext(IntroRevealContext);
+}
+
+function readQuestionnaireDone() {
+  try {
+    return sessionStorage.getItem(QUESTIONNAIRE_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
 }
 
 export function IntroRevealProvider({
@@ -29,11 +43,27 @@ export function IntroRevealProvider({
   children: React.ReactNode;
 }) {
   const [revealed, setRevealed] = useState(false);
+  const [siteUnlocked, setSiteUnlocked] = useState(false);
 
   const reveal = useCallback(() => {
     setRevealed(true);
     document.documentElement.classList.remove("mmhq-intro-pending");
     document.documentElement.classList.add("mmhq-content-revealed");
+  }, []);
+
+  const unlockSite = useCallback(() => {
+    try {
+      sessionStorage.setItem(QUESTIONNAIRE_STORAGE_KEY, "1");
+    } catch {
+      // ignore
+    }
+    setSiteUnlocked(true);
+  }, []);
+
+  useEffect(() => {
+    if (readQuestionnaireDone()) {
+      setSiteUnlocked(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -46,8 +76,8 @@ export function IntroRevealProvider({
   }, [reveal]);
 
   const value = useMemo(
-    () => ({ revealed, reveal }),
-    [revealed, reveal]
+    () => ({ revealed, reveal, siteUnlocked, unlockSite }),
+    [revealed, reveal, siteUnlocked, unlockSite]
   );
 
   return (
@@ -57,7 +87,19 @@ export function IntroRevealProvider({
   );
 }
 
-/** Wraps header/main/footer — stays in place so hero can do the line rises */
+/** Header/main/footer — only mounts after the questionnaire is completed */
 export function SiteShell({ children }: { children: React.ReactNode }) {
+  const { siteUnlocked } = useIntroReveal();
+
+  if (!siteUnlocked) {
+    return (
+      <div
+        id="mmhq-site-pending"
+        className="fixed inset-0 z-0 bg-black"
+        aria-hidden
+      />
+    );
+  }
+
   return <div id="mmhq-site">{children}</div>;
 }
