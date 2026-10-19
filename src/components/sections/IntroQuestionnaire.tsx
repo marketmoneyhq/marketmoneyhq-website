@@ -3,7 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle, Loader2, X } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
 import { useIntroReveal } from "@/components/providers/IntroReveal";
 import { Button } from "@/components/ui/Button";
 
@@ -32,6 +32,14 @@ const emptyForm: FormState = {
   readyToday: "",
 };
 
+function alreadyCompleted() {
+  try {
+    return sessionStorage.getItem(STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function IntroQuestionnaire() {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -44,15 +52,41 @@ export function IntroQuestionnaire() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!isHome || !revealed) return;
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
-    } catch {
-      // ignore storage failures
-    }
-    const timer = window.setTimeout(() => setOpen(true), 280);
+    if (alreadyCompleted()) return;
+
+    // Home: wait for curtains to finish opening first
+    if (isHome && !revealed) return;
+
+    const timer = window.setTimeout(() => setOpen(true), isHome ? 280 : 0);
     return () => window.clearTimeout(timer);
   }, [isHome, revealed]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const html = document.documentElement;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    html.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    html.classList.add("mmhq-intro-lock");
+
+    // Block Escape / backdoor keyboard dismiss
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
+
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+      html.classList.remove("mmhq-intro-lock");
+      window.removeEventListener("keydown", onKey, true);
+    };
+  }, [open]);
 
   function markDone() {
     try {
@@ -61,28 +95,6 @@ export function IntroQuestionnaire() {
       // ignore
     }
   }
-
-  function dismiss() {
-    markDone();
-    setOpen(false);
-  }
-
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        markDone();
-        setOpen(false);
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -126,11 +138,9 @@ export function IntroQuestionnaire() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
         >
-          <button
-            type="button"
-            aria-label="Close questionnaire"
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={dismiss}
+          <div
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            aria-hidden
           />
 
           <motion.div
@@ -143,15 +153,6 @@ export function IntroQuestionnaire() {
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <button
-              type="button"
-              onClick={dismiss}
-              className="absolute right-3 top-3 rounded-full p-2 text-gray-400 transition-colors hover:bg-white/10 hover:text-white"
-              aria-label="Dismiss"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
             {submitted ? (
               <div className="flex flex-col items-center py-10 text-center">
                 <CheckCircle className="mb-4 h-12 w-12 text-[#0088ff]" />
@@ -164,7 +165,7 @@ export function IntroQuestionnaire() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="pr-8">
+                <div>
                   <p className="mb-1 text-xs font-medium uppercase tracking-[0.18em] text-[#0088ff]">
                     Quick intro
                   </p>
@@ -175,8 +176,7 @@ export function IntroQuestionnaire() {
                     Tell Us About You
                   </h2>
                   <p className="mt-2 text-sm text-gray-400">
-                    A few questions so Market Money HQ can help you the right
-                    way.
+                    Please answer these questions to continue to the site.
                   </p>
                 </div>
 
@@ -323,30 +323,21 @@ export function IntroQuestionnaire() {
                   </p>
                 ) : null}
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full sm:flex-1"
-                    disabled={submitting}
-                  >
-                    {submitting ? (
-                      <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Sending…
-                      </>
-                    ) : (
-                      "Submit"
-                    )}
-                  </Button>
-                  <button
-                    type="button"
-                    onClick={dismiss}
-                    className="text-sm text-gray-400 transition-colors hover:text-white sm:px-3"
-                  >
-                    Skip for now
-                  </button>
-                </div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  disabled={submitting}
+                >
+                  {submitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Sending…
+                    </>
+                  ) : (
+                    "Submit & Continue"
+                  )}
+                </Button>
               </form>
             )}
           </motion.div>
