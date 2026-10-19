@@ -158,3 +158,107 @@ export async function sendSignedAgreementEmails(args: {
       "Email is not configured. Add GMAIL_USER + GMAIL_APP_PASSWORD (recommended) or RESEND_API_KEY to .env.local",
   };
 }
+
+export type QuestionnairePayload = {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  helpWith: string;
+  why: string;
+  readyToday: string;
+};
+
+function buildQuestionnaireHtml(data: QuestionnairePayload) {
+  const rows = [
+    ["First name", data.firstName],
+    ["Last name", data.lastName],
+    ["Phone", data.phone],
+    ["Email", data.email],
+    ["What do you need help with?", data.helpWith],
+    ['What is your "why"?', data.why],
+    ["Are you ready to get started today?", data.readyToday],
+  ];
+
+  return `
+    <div style="font-family:Arial,sans-serif;line-height:1.5;color:#111">
+      <h2 style="margin:0 0 12px">New mentorship questionnaire</h2>
+      <p style="margin:0 0 16px;color:#555">Submitted from the Market Money HQ homepage.</p>
+      <table style="border-collapse:collapse;width:100%;max-width:640px">
+        ${rows
+          .map(
+            ([label, value]) => `
+          <tr>
+            <td style="padding:10px 12px;border:1px solid #e5e5e5;background:#f7f7f7;font-weight:600;width:38%;vertical-align:top">${label}</td>
+            <td style="padding:10px 12px;border:1px solid #e5e5e5;white-space:pre-wrap">${value}</td>
+          </tr>`
+          )
+          .join("")}
+      </table>
+    </div>
+  `;
+}
+
+export async function sendQuestionnaireEmail(
+  data: QuestionnairePayload
+): Promise<EmailResult> {
+  const subject = `[Questionnaire] ${data.firstName} ${data.lastName}`;
+  const html = buildQuestionnaireHtml(data);
+
+  if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
+    try {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_APP_PASSWORD,
+        },
+      });
+
+      await transporter.sendMail({
+        from: `"Market Money HQ" <${process.env.GMAIL_USER}>`,
+        to: siteConfig.email,
+        replyTo: data.email,
+        subject,
+        html,
+      });
+
+      return { sent: true, provider: "gmail" };
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Gmail send failed";
+      if (!process.env.RESEND_API_KEY) {
+        return { sent: false, reason: message };
+      }
+    }
+  }
+
+  if (process.env.RESEND_API_KEY) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const from =
+      process.env.RESEND_FROM_EMAIL ||
+      "Market Money HQ <onboarding@resend.dev>";
+    const result = await resend.emails.send({
+      from,
+      to: siteConfig.email,
+      replyTo: data.email,
+      subject,
+      html,
+    });
+
+    if (result.error) {
+      return {
+        sent: false,
+        reason: result.error.message || "Failed to send questionnaire email",
+      };
+    }
+
+    return { sent: true, provider: "resend" };
+  }
+
+  return {
+    sent: false,
+    reason:
+      "Email is not configured. Add GMAIL_USER + GMAIL_APP_PASSWORD (recommended) or RESEND_API_KEY to .env.local",
+  };
+}

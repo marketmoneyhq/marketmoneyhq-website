@@ -8,6 +8,7 @@ import {
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { IntroCurtain } from "@/components/sections/IntroCurtain";
+import { IntroQuestionnaire } from "@/components/sections/IntroQuestionnaire";
 import {
   createMetadata,
   createOrganizationSchema,
@@ -95,6 +96,7 @@ export default function RootLayout({
         <ThemeProvider>
           <IntroRevealProvider>
             <IntroCurtain />
+            <IntroQuestionnaire />
             <SiteShell>
               <Header />
               <main id="main-content">{children}</main>
