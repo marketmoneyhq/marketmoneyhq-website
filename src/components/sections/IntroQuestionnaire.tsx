@@ -127,7 +127,11 @@ export function IntroQuestionnaire() {
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 z-[220] flex items-end justify-center bg-black p-3 sm:items-center sm:p-6"
+          className={`fixed inset-0 z-[220] flex justify-center bg-black p-3 sm:p-6 ${
+            submitted
+              ? "items-center"
+              : "items-end sm:items-center"
+          }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
