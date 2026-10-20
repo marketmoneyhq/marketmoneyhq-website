@@ -169,7 +169,16 @@ export type QuestionnairePayload = {
   readyToday: string;
 };
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function buildQuestionnaireHtml(data: QuestionnairePayload) {
+  const fullName = `${data.firstName} ${data.lastName}`.trim();
   const rows = [
     ["First name", data.firstName],
     ["Last name", data.lastName],
@@ -182,15 +191,21 @@ function buildQuestionnaireHtml(data: QuestionnairePayload) {
 
   return `
     <div style="font-family:Arial,sans-serif;line-height:1.5;color:#111">
-      <h2 style="margin:0 0 12px">New mentorship questionnaire</h2>
-      <p style="margin:0 0 16px;color:#555">Submitted from the Market Money HQ homepage.</p>
+      <h2 style="margin:0 0 12px">New website lead</h2>
+      <p style="margin:0 0 8px;padding:12px;background:#eff7ff;border:1px solid #bfd9ff;border-radius:8px">
+        <strong>From:</strong> ${escapeHtml(fullName)}<br/>
+        <strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a><br/>
+        <strong>Phone:</strong> ${escapeHtml(data.phone)}<br/>
+        <span style="color:#555;font-size:13px">Hit Reply to respond directly to this person.</span>
+      </p>
+      <p style="margin:0 0 16px;color:#555">Submitted from the Market Money HQ homepage questionnaire.</p>
       <table style="border-collapse:collapse;width:100%;max-width:640px">
         ${rows
           .map(
             ([label, value]) => `
           <tr>
-            <td style="padding:10px 12px;border:1px solid #e5e5e5;background:#f7f7f7;font-weight:600;width:38%;vertical-align:top">${label}</td>
-            <td style="padding:10px 12px;border:1px solid #e5e5e5;white-space:pre-wrap">${value}</td>
+            <td style="padding:10px 12px;border:1px solid #e5e5e5;background:#f7f7f7;font-weight:600;width:38%;vertical-align:top">${escapeHtml(label)}</td>
+            <td style="padding:10px 12px;border:1px solid #e5e5e5;white-space:pre-wrap">${escapeHtml(value)}</td>
           </tr>`
           )
           .join("")}
@@ -202,8 +217,13 @@ function buildQuestionnaireHtml(data: QuestionnairePayload) {
 export async function sendQuestionnaireEmail(
   data: QuestionnairePayload
 ): Promise<EmailResult> {
-  const subject = `[Questionnaire] ${data.firstName} ${data.lastName}`;
+  const fullName = `${data.firstName} ${data.lastName}`.trim();
+  const subject = `New lead: ${fullName} <${data.email}>`;
   const html = buildQuestionnaireHtml(data);
+  // Gmail must send as the authenticated inbox, so it can look like "me".
+  // Display name + Reply-To make the visitor clear and keep Reply working.
+  const fromName = `${fullName} via Website`;
+  const replyTo = `"${fullName.replace(/"/g, "")}" <${data.email}>`;
 
   if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
     try {
@@ -216,9 +236,9 @@ export async function sendQuestionnaireEmail(
       });
 
       await transporter.sendMail({
-        from: `"Market Money HQ" <${process.env.GMAIL_USER}>`,
+        from: `"${fromName.replace(/"/g, "")}" <${process.env.GMAIL_USER}>`,
         to: siteConfig.email,
-        replyTo: data.email,
+        replyTo,
         subject,
         html,
       });
