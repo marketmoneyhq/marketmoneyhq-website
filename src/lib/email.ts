@@ -185,13 +185,13 @@ function buildQuestionnaireHtml(data: QuestionnairePayload) {
     ["Phone", data.phone],
     ["Email", data.email],
     ["What do you need help with?", data.helpWith],
-    ['What is your "why"?', data.why],
+    ['What is your "WHY"?', data.why],
     ["Are you ready to get started today?", data.readyToday],
   ];
 
   return `
     <div style="font-family:Arial,sans-serif;line-height:1.5;color:#111">
-      <h2 style="margin:0 0 12px">New website lead</h2>
+      <h2 style="margin:0 0 12px">New Mentorship Questionnaire</h2>
       <p style="margin:0 0 8px;padding:12px;background:#eff7ff;border:1px solid #bfd9ff;border-radius:8px">
         <strong>From:</strong> ${escapeHtml(fullName)}<br/>
         <strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a><br/>
@@ -218,12 +218,12 @@ export async function sendQuestionnaireEmail(
   data: QuestionnairePayload
 ): Promise<EmailResult> {
   const fullName = `${data.firstName} ${data.lastName}`.trim();
-  const subject = `New lead: ${fullName} <${data.email}>`;
+  const subject = "New Mentorship Questionnaire";
   const html = buildQuestionnaireHtml(data);
-  // Gmail must send as the authenticated inbox, so it can look like "me".
-  // Display name + Reply-To make the visitor clear and keep Reply working.
-  const fromName = `${fullName} via Website`;
-  const replyTo = `"${fullName.replace(/"/g, "")}" <${data.email}>`;
+  // Gmail requires sending as the authenticated inbox address. Using the
+  // visitor's name as the From display name; Reply-To is their email.
+  const fromName = fullName.replace(/"/g, "");
+  const replyTo = `"${fromName}" <${data.email}>`;
 
   if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
     try {
@@ -236,7 +236,7 @@ export async function sendQuestionnaireEmail(
       });
 
       await transporter.sendMail({
-        from: `"${fromName.replace(/"/g, "")}" <${process.env.GMAIL_USER}>`,
+        from: `"${fromName}" <${process.env.GMAIL_USER}>`,
         to: siteConfig.email,
         replyTo,
         subject,

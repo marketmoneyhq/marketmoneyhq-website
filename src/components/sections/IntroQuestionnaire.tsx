@@ -263,7 +263,7 @@ export function IntroQuestionnaire() {
                     htmlFor="qq-why"
                     className="mb-2 block text-sm font-medium"
                   >
-                    2. What is your &quot;why&quot;?
+                    2. What is your &quot;WHY&quot;?
                   </label>
                   <textarea
                     id="qq-why"
