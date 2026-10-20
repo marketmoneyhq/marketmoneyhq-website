@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     }
     if (why.length < 2) {
       return NextResponse.json(
-        { error: 'Please share your "why".' },
+        { error: 'Please share your "WHY".' },
         { status: 400 }
       );
     }
