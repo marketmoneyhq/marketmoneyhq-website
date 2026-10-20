@@ -10,8 +10,33 @@ import {
 } from "@/components/providers/IntroReveal";
 import { Button } from "@/components/ui/Button";
 
+// text-base (16px) prevents iOS Safari from auto-zooming on focus
 const fieldClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0088ff] dark:border-white/15 dark:bg-charcoal";
+  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base outline-none focus:ring-2 focus:ring-[#0088ff] dark:border-white/15 dark:bg-charcoal";
+
+function resetMobileViewport() {
+  if (typeof document === "undefined") return;
+
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (!viewport) return;
+
+  // Temporarily lock scale so iOS drops any zoom from the form, then restore.
+  viewport.setAttribute(
+    "content",
+    "width=device-width, initial-scale=1, maximum-scale=1"
+  );
+  window.setTimeout(() => {
+    viewport.setAttribute(
+      "content",
+      "width=device-width, initial-scale=1, viewport-fit=cover"
+    );
+  }, 50);
+}
 
 type FormState = {
   firstName: string;
@@ -113,8 +138,13 @@ export function IntroQuestionnaire() {
       setSubmitted(true);
       // Unlock and mount the site only after a successful submit
       window.setTimeout(() => {
+        resetMobileViewport();
         unlockSite();
         setOpen(false);
+        window.requestAnimationFrame(() => {
+          resetMobileViewport();
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+        });
       }, 1200);
     } catch {
       setError("Unable to submit right now. Please try again.");

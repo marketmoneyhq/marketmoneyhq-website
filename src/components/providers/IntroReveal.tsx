@@ -91,6 +91,11 @@ export function IntroRevealProvider({
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const { siteUnlocked } = useIntroReveal();
 
+  useEffect(() => {
+    if (!siteUnlocked) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+  }, [siteUnlocked]);
+
   if (!siteUnlocked) {
     return (
       <div
